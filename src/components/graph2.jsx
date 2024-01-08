@@ -14,7 +14,7 @@ function Graph() {
         };
         
         //console.log("Before do fetching")
-        fetch("http://10.23.104.222:3030/all-data?table=tb_ksb60", request)
+        fetch("http://10.23.104.222:3030/all-data?table=tb_ksb61", request)
             .then(res => res.json())
             .then(function(res){
                 console.log("Inside fetch")
