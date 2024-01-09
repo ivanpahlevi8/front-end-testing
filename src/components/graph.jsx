@@ -260,8 +260,8 @@ function Graph() {
 
     return (
         <div className="container-fluid">
-            <h1 mb-5>DND MONITOR</h1>
-            <div class="row">
+            
+            <div class="row g-0">
                 <div class="col-sm">
                     <Line data={data} />
                 </div>
@@ -272,7 +272,7 @@ function Graph() {
                     <Line data={data3} />
                 </div>
             </div>
-            <div class="row">
+            <div class="row g-0">
                 <div class="col-sm">
                     <Line data={data5} />
                 </div>

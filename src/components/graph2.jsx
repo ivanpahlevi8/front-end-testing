@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
+var year = "";
+
 function Graph() {
     const [dataSet, setDataSet] = useState([]);
     useEffect(()=>{
@@ -49,7 +51,9 @@ function Graph() {
     // cretae array for key of objecy
     var arrKey = [];
     for(let i = dataSet.length - 1; i > 0; i--){
-        arrKey = [...arrKey, dataSet[i].time]
+        let getStr = dataSet[i].time.toString();
+        year = getStr.substring(0, getStr.indexOf("-"))
+        arrKey = [...arrKey, getStr.substring(getStr.indexOf("-")+1, getStr.indexOf("."))]
     }
 
     // create array for value of object
@@ -69,19 +73,51 @@ function Graph() {
     labels: labels,
     datasets: [
         {
-        label: "Todays Flows Value",
-        backgroundColor: "rgb(255, 99, 132)",
-        borderColor: "rgb(255, 99, 132)",
+        label: "Flows",
+        backgroundColor: "rgb(0, 0, 180)",
+        borderColor: "rgb(0, 0, 180)",
         data: arrVal,
         },
     ],
     };
 
+    const option1 = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                min: 0,
+                max: 1000,
+                ticks: {
+                    
+                }
+              },
+            x: {
+            title: {
+                display: true,
+                text: year,
+                font:{
+                    weight: 'bold'
+                },
+            },
+            ticks: {
+                font:{
+                    weight: 'bold'
+                },
+                autoSkip: true,
+                maxRotation: 90,
+                minRotation: 90
+            }
+            }
+        },
+    }
+
     // second graph discharge pressure
     // cretae array for key of objecy
     var arrKey2 = [];
     for(let i = dataSet.length - 1; i > 0; i--){
-        arrKey2 = [...arrKey2, dataSet[i].time]
+        let getStr = dataSet[i].time.toString();
+        arrKey2 = [...arrKey2, getStr.substring(getStr.indexOf("-")+1, getStr.indexOf("."))]
     }
 
     // create array for value of object
@@ -99,19 +135,51 @@ function Graph() {
         datasets: [
             {
             label: "Discharge Pressure",
-            backgroundColor: "rgb(255, 99, 132)",
-            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgb(0, 0, 180)",
+            borderColor: "rgb(0, 0, 180)",
             data: arrVal2,
             },
         ],
         };
+
+        const option2 = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    min: 0,
+                    max: 25,
+                    ticks: {
+                        
+                    }
+                  },
+                x: {
+                title: {
+                    display: true,
+                    text: year,
+                    font:{
+                        weight: 'bold'
+                    },
+                },
+                ticks: {
+                    font:{
+                        weight: 'bold'
+                    },
+                    autoSkip: true,
+                    maxRotation: 90,
+                    minRotation: 90
+                }
+                }
+            },
+        }
 
 
     // third graph pump_de_temperature
     // cretae array for key of objecy
     var arrKey3 = [];
     for(let i = dataSet.length - 1; i > 0; i--){
-        arrKey3 = [...arrKey3, dataSet[i].time]
+        let getStr = dataSet[i].time.toString();
+        arrKey3 = [...arrKey3, getStr.substring(getStr.indexOf("-")+1, getStr.indexOf("."))]
     }
 
     // create array for value of object
@@ -129,19 +197,51 @@ function Graph() {
         datasets: [
             {
             label: "Pump De Temperature",
-            backgroundColor: "rgb(255, 99, 132)",
-            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgb(0, 0, 180)",
+            borderColor: "rgb(0, 0, 180)",
             data: arrVal3,
             },
         ],
         };
+
+        const option3 = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    min: 0,
+                    max: 200,
+                    ticks: {
+                        
+                    }
+                  },
+                x: {
+                title: {
+                    display: true,
+                    text: year,
+                    font:{
+                        weight: 'bold'
+                    },
+                },
+                ticks: {
+                    font:{
+                        weight: 'bold'
+                    },
+                    autoSkip: true,
+                    maxRotation: 90,
+                    minRotation: 90
+                }
+                }
+            },
+        }
 
     
     // fourth graph engine_run_hour
     // cretae array for key of objecy
     var arrKey4 = [];
     for(let i = dataSet.length - 1; i > 0; i--){
-        arrKey4 = [...arrKey4, dataSet[i].time]
+        let getStr = dataSet[i].time.toString();
+        arrKey4 = [...arrKey4, getStr.substring(getStr.indexOf("-")+1, getStr.indexOf("."))]
     }
 
     // create array for value of object
@@ -171,7 +271,8 @@ function Graph() {
     // cretae array for key of objecy
     var arrKey5 = [];
     for(let i = dataSet.length - 1; i > 0; i--){
-        arrKey5 = [...arrKey5, dataSet[i].time]
+        let getStr = dataSet[i].time.toString();
+        arrKey5 = [...arrKey5, getStr.substring(getStr.indexOf("-")+1, getStr.indexOf("."))]
     }
 
     // create array for value of object
@@ -189,19 +290,51 @@ function Graph() {
         datasets: [
             {
             label: "Engine Speed",
-            backgroundColor: "rgb(255, 99, 132)",
-            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgb(0, 0, 180)",
+            borderColor: "rgb(0, 0, 180)",
             data: arrVal5,
             },
         ],
         };
+
+        const option5 = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    min: 0,
+                    max: 2000,
+                    ticks: {
+                        
+                    }
+                  },
+                x: {
+                title: {
+                    display: true,
+                    text: year,
+                    font:{
+                        weight: 'bold'
+                    },
+                },
+                ticks: {
+                    font:{
+                        weight: 'bold'
+                    },
+                    autoSkip: true,
+                    maxRotation: 90,
+                    minRotation: 90
+                }
+                }
+            },
+        }
 
 
     // sixth graph engine_load
     // cretae array for key of objecy
     var arrKey6 = [];
     for(let i = dataSet.length - 1; i > 0; i--){
-        arrKey6 = [...arrKey6, dataSet[i].time]
+        let getStr = dataSet[i].time.toString();
+        arrKey6 = [...arrKey6, getStr.substring(getStr.indexOf("-")+1, getStr.indexOf("."))]
     }
 
     // create array for value of object
@@ -219,19 +352,51 @@ function Graph() {
         datasets: [
             {
             label: "Engine Load",
-            backgroundColor: "rgb(255, 99, 132)",
-            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgb(0, 0, 180)",
+            borderColor: "rgb(0, 0, 180)",
             data: arrVal6,
             },
         ],
         };
+
+        const option6 = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    min: 0,
+                    max: 150,
+                    ticks: {
+                        
+                    }
+                  },
+                x: {
+                title: {
+                    display: true,
+                    text: year,
+                    font:{
+                        weight: 'bold'
+                    },
+                },
+                ticks: {
+                    font:{
+                        weight: 'bold'
+                    },
+                    autoSkip: true,
+                    maxRotation: 90,
+                    minRotation: 90
+                }
+                }
+            },
+        }
     
     
     // seventh graph engine_fuel_rate
     // cretae array for key of objecy
     var arrKey7 = [];
     for(let i = dataSet.length - 1; i > 0; i--){
-        arrKey7 = [...arrKey7, dataSet[i].time]
+        let getStr = dataSet[i].time.toString();
+        arrKey7 = [...arrKey7, getStr.substring(getStr.indexOf("-")+1, getStr.indexOf("."))]
     }
 
     // create array for value of object
@@ -249,38 +414,104 @@ function Graph() {
         datasets: [
             {
             label: "Engine Fuel Rate",
-            backgroundColor: "rgb(255, 99, 132)",
-            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgb(0, 0, 180)",
+            borderColor: "rgb(0, 0, 180)",
             data: arrVal,
             },
         ],
         };
+
+    
+        const option7 = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    min: 0,
+                    max: 500,
+                    ticks: {
+                        
+                    }
+                  },
+                x: {
+                title: {
+                    display: true,
+                    text: year,
+                    font:{
+                        weight: 'bold'
+                    },
+                },
+                ticks: {
+                    font:{
+                        weight: 'bold'
+                    },
+                    autoSkip: true,
+                    maxRotation: 90,
+                    minRotation: 90
+                }
+                }
+            },
+        }
     
 
 
     return (
-        <div className="container-fluid">
-            <h1 mb-5>DND MONITOR</h1>
-            <div class="row">
-                <div class="col-sm">
-                    <Line data={data} />
+        <div className="container-fluid" style={{backgroundColor: '86A7FC'}}>
+            <div className="row g-0">
+                <div className="col-sm" style={{margin: 0}}>
                 </div>
-                <div class="col-sm">
-                    <Line data={data2} />
+                <div className="col-sm d-flex justify-content-center" style={{margin: 0}}>
+                    <div className="card ms-7" style={{width: '200px'}}>
+                        <h2>KSB-61</h2>
+                    </div>
                 </div>
-                <div class="col-sm">
-                    <Line data={data3} />
+                <div className="col-sm" style={{margin: 0}}>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm">
-                    <Line data={data5} />
+            <div className="row g-0 mt-2">
+                <div className="col-sm" style={{margin: 0}}>
+                    <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
+                        <div className="card-body">
+                            <Line data={data} options={option1}/>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm">
-                    <Line data={data6} />
+                <div class="col-sm" style={{margin: 0}}>
+                    <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
+                            <div className="card-body">
+                                <Line data={data2} options={option2} />
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-sm no-gutters" style={{margin: 0}}>
+                    <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
+                        <div className="card-body">
+                            <Line data={data3} options={option3} />
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm">
-                    <Line data={data7} />
+            </div>
+            <div class="row g-0">
+                <div class="col-sm" style={{margin: 0}}>
+                    <div className="card" style={{backgroundColor: 'red500', height: '500px'}}>
+                        <div className="card-body">
+                            <Line data={data7} options={option7}/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm" style={{margin: 0}}>
+                    <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
+                        <div className="card-body">
+                            <Line data={data5} options={option5}/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm" style={{margin: 0}}>
+                    <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
+                        <div className="card-body">
+                            <Line data={data6} options={option6}/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
