@@ -239,7 +239,7 @@ function Graph() {
             scales: {
                 y: {
                     min: 0,
-                    max: 200,
+                    max: 150,
                     ticks: {
                         
                     }
@@ -332,7 +332,7 @@ function Graph() {
             scales: {
                 y: {
                     min: 0,
-                    max: 2000,
+                    max: 1800,
                     ticks: {
                         
                     }
@@ -394,7 +394,7 @@ function Graph() {
             scales: {
                 y: {
                     min: 0,
-                    max: 150,
+                    max: 100,
                     ticks: {
                         
                     }
@@ -457,7 +457,7 @@ function Graph() {
             scales: {
                 y: {
                     min: 0,
-                    max: 100,
+                    max: 120,
                     ticks: {
                         
                     }
