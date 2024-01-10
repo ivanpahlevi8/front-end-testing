@@ -4,6 +4,22 @@ import { Line } from "react-chartjs-2";
 
 var year = "";
 
+// create value for maximum value of graph
+var maxValueFlow = 800;
+var maxValuePressure = 25;
+var maxValuePumpDeTemperature = 200;
+var maxValueEngineFuelRate= 500;
+var maxEngineSpeed = 2000;
+var maxEngineLoad = 150;
+
+// create variable to get value from response
+var getMaxValueFlow = 0;
+var getMaxValuePressure = 0;
+var getMaxTemp = 0;
+var getMaxFuelRate = 0;
+var getMaxEngineSpeed = 0;
+var getMaxEngineLoad= 0;
+
 function Graph() {
     const [dataSet, setDataSet] = useState([]);
     useEffect(()=>{
@@ -23,6 +39,19 @@ function Graph() {
                 // test to print data
                 var ok = res.ok 
                 var getData = res.data
+
+                // assign value from response
+                getMaxValueFlow = res.max_flow;
+                getMaxValuePressure = res.max_discharge_pressure;
+                getMaxTemp = res.max_pump_de_temperature;
+                getMaxFuelRate = res.max_engine_speed;
+                getMaxEngineSpeed = res.max_engine_load;
+                getMaxEngineLoad= res.max_engine_fuel_rate;
+
+                // check data
+                if(getMaxValueFlow > 800) {
+                    maxValueFlow = 2000;
+                }
     
                 // set data from dataset
                 var data = [];
@@ -87,7 +116,7 @@ function Graph() {
         scales: {
             y: {
                 min: 0,
-                max: 1000,
+                max: maxValueFlow,
                 ticks: {
                     
                 }
@@ -416,7 +445,7 @@ function Graph() {
             label: "Engine Fuel Rate",
             backgroundColor: "rgb(0, 0, 180)",
             borderColor: "rgb(0, 0, 180)",
-            data: arrVal,
+            data: arrVal7,
             },
         ],
         };
@@ -428,7 +457,7 @@ function Graph() {
             scales: {
                 y: {
                     min: 0,
-                    max: 500,
+                    max: 100,
                     ticks: {
                         
                     }
