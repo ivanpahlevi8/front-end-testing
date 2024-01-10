@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Chart from "chart.js/auto";
-import { Line } from "react-chartjs-2";
+import Chart                          from "chart.js/auto";
+import { Line }                       from "react-chartjs-2";
+
+import { Line }                       from "react-chartjs-2";
+
 
 var year = "";
 
@@ -488,11 +491,6 @@ function Graph() {
         <div className="container-fluid" style={{backgroundColor: '86A7FC'}}>
             <div className="row g-0">
                 <div className="col-sm" style={{margin: 0}}>
-                </div>
-                <div className="col-sm d-flex justify-content-center" style={{margin: 0}}>
-                    <div className="card ms-7" >
-                        <h2>KSB61</h2>
-                    </div>
                 </div>
                 <div className="col-sm" style={{margin: 0}}>
                 </div>
