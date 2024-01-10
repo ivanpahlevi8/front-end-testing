@@ -490,8 +490,8 @@ function Graph() {
                 <div className="col-sm" style={{margin: 0}}>
                 </div>
                 <div className="col-sm d-flex justify-content-center" style={{margin: 0}}>
-                    <div className="card ms-7" style={{width: '200px'}}>
-                        <h2>KSB-61</h2>
+                    <div className="card p-2">
+                        <h2 className="text-primary">KSB61 -- ISPD200 -- PT.AMNT</h2>
                     </div>
                 </div>
                 <div className="col-sm" style={{margin: 0}}>
