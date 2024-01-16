@@ -23,6 +23,7 @@ var getMaxEngineLoad= 0;
 function KSB61Pressure(){
     console.log("inititated2");
     const [dataSet, setDataSet] = useState(null);
+    const [dataDate, setDataDate] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -30,11 +31,13 @@ function KSB61Pressure(){
     useEffect(() => {
         async function fetchData() {
           try {
-            console.log('Startuing fetching2');
-            const data = await fetch('http://10.23.104.222:3030/all-data?table=tb_ksb61').then(data => data.json());
+            console.log('Starting fetching pressure data');
+            const data = await fetch('http://10.23.104.222:3030/press-data?table=tb_ksb61').then(data => data.json());
             console.log("Inside fetch data");
-            const getDataValue = data.data;
+            const getDataValue = data.data_press;
+            const getDate = data.data_time;
             setDataSet(getDataValue);
+            setDataDate(getDate);
             setLoading(false);
             console.log("set loading to false");
           } catch (error) {
@@ -58,23 +61,15 @@ function KSB61Pressure(){
     }
 
      // second graph discharge pressure
-     console.log("intitating second graph");
+     console.log("intitating pressure data graph");
      // cretae array for key of objecy
-     var arrKey2 = [];
-     for(let i = dataSet.length - 1; i > 0; i--){
-         let getStr = dataSet[i].time.toString();
-         arrKey2 = [...arrKey2, getStr]
-     }
+     var arrKey2 = dataDate;
  
      // create array for value of object
-     var arrVal2 = [];
+     var arrVal2 = dataSet;
  
      // assign ket array to labels
      const labels2 = arrKey2;
- 
-     for (let i = dataSet.length - 1; i > 0; i--) {
-         arrVal2 = [...arrVal2, dataSet[i].discharge_pressure];
-     }
  
      const data2 = {
          labels: labels2,
@@ -118,7 +113,7 @@ function KSB61Pressure(){
                  }
              },
          } 
-
+    console.log("intitating pressure graph view");
     return (
         <Line data={data2} options={option2} />
     )

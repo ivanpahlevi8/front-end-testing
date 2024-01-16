@@ -23,6 +23,7 @@ var getMaxEngineLoad= 0;
 function KSB61Temp(){
     console.log("inititated");
     const [dataSet, setDataSet] = useState(null);
+    const [dataDate, setDataDate] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -30,11 +31,13 @@ function KSB61Temp(){
     useEffect(() => {
         async function fetchData() {
           try {
-            console.log('Startuing fetching');
-            const data = await fetch('http://10.23.104.222:3030/all-data?table=tb_ksb61').then(data => data.json());
+            console.log('Starting fetching temperature data');
+            const data = await fetch('http://10.23.104.222:3030/temp-data?table=tb_ksb61').then(data => data.json());
             console.log("Inside fetch data");
-            const getDataValue = data.data;
+            const getDataValue = data.data_temp;
+            const getDataDate = data.data_time;
             setDataSet(getDataValue);
+            setDataDate(getDataDate);
             setLoading(false);
             console.log("set loading to false");
           } catch (error) {
@@ -58,23 +61,15 @@ function KSB61Temp(){
     }
 
     // third graph pump_de_temperature
-    console.log("intitating third graph");
+    console.log("intitating third graph data");
     // cretae array for key of objecy
-    var arrKey3 = [];
-    for(let i = dataSet.length - 1; i > 0; i--){
-        let getStr = dataSet[i].time.toString();
-        arrKey3 = [...arrKey3, getStr]
-    }
+    var arrKey3 = dataDate;
 
     // create array for value of object
-    var arrVal3 = [];
+    var arrVal3 = dataSet;
 
     // assign ket array to labels
     const labels3 = arrKey3;
-
-    for (let i = dataSet.length - 1; i > 0; i--) {
-        arrVal3 = [...arrVal3, dataSet[i].pump_de_temperature];
-    }
 
     const data3 = {
         labels: labels3,
@@ -118,6 +113,8 @@ function KSB61Temp(){
                 }
             },
         }
+
+    console.log("intitating third graph view");
 
     return (
         <Line data={data3} options={option3} />

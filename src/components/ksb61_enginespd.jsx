@@ -23,6 +23,7 @@ var getMaxEngineLoad= 0;
 function KSB61EngineSpeed(){
     console.log("inititated2");
     const [dataSet, setDataSet] = useState(null);
+    const [dataDate, setDataDate] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -30,11 +31,13 @@ function KSB61EngineSpeed(){
     useEffect(() => {
         async function fetchData() {
           try {
-            console.log('Startuing fetching2');
-            const data = await fetch('http://10.23.104.222:3030/all-data?table=tb_ksb61').then(data => data.json());
+            console.log('Starting fetching speed data...');
+            const data = await fetch('http://10.23.104.222:3030/speed-data?table=tb_ksb61').then(data => data.json());
             console.log("Inside fetch data");
-            const getDataValue = data.data;
+            const getDataValue = data.data_speed;
+            const getDataDate = data.data_time;
             setDataSet(getDataValue);
+            setDataDate(getDataDate);
             setLoading(false);
             console.log("set loading to false");
           } catch (error) {
@@ -58,23 +61,15 @@ function KSB61EngineSpeed(){
     }
 
       // fifth graph engine_speed
-    console.log("intitating fifth graph");
+    console.log("intitating speed graph data");
     // cretae array for key of objecy
-    var arrKey5 = [];
-    for(let i = dataSet.length - 1; i > 0; i--){
-        let getStr = dataSet[i].time.toString();
-        arrKey5 = [...arrKey5, getStr]
-    }
+    var arrKey5 = dataDate;
 
     // create array for value of object
-    var arrVal5 = [];
+    var arrVal5 = dataSet;
 
     // assign ket array to labels
     const labels5 = arrKey5;
-
-    for (let i = dataSet.length - 1; i > 0; i--) {
-        arrVal5 = [...arrVal5, dataSet[i].engine_speed];
-    }
 
     const data5 = {
         labels: labels5,
@@ -118,6 +113,8 @@ function KSB61EngineSpeed(){
                 }
             },
         }
+
+    console.log("intitating speed graph view");
 
     return (
         <Line data={data5} options={option5}/>

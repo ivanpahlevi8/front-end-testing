@@ -23,6 +23,7 @@ var getMaxEngineLoad= 0;
 function KSB61EngineLoad(){
     console.log("inititated2");
     const [dataSet, setDataSet] = useState(null);
+    const [dataDate, setDataDate] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -33,8 +34,10 @@ function KSB61EngineLoad(){
             console.log('Startuing fetching2');
             const data = await fetch('http://10.23.104.222:3030/all-data?table=tb_ksb61').then(data => data.json());
             console.log("Inside fetch data");
-            const getDataValue = data.data;
+            const getDataValue = data.data_load;
+            const getDataDate = data.data_time;
             setDataSet(getDataValue);
+            setDataDate(getDataDate);
             setLoading(false);
             console.log("set loading to false");
           } catch (error) {
@@ -58,23 +61,15 @@ function KSB61EngineLoad(){
     }
 
     // sixth graph engine_load
-    console.log("intitating sixth graph");
+    console.log("intitating engine load graph data");
     // cretae array for key of objecy
-    var arrKey6 = [];
-    for(let i = dataSet.length - 1; i > 0; i--){
-        let getStr = dataSet[i].time.toString();
-        arrKey6 = [...arrKey6, getStr]
-    }
+    var arrKey6 = dataDate;
 
     // create array for value of object
-    var arrVal6 = [];
+    var arrVal6 = dataSet;
 
     // assign ket array to labels
     const labels6 = arrKey6;
-
-    for (let i = dataSet.length - 1; i > 0; i--) {
-        arrVal6 = [...arrVal6, dataSet[i].engine_load];
-    }
 
     const data6 = {
         labels: labels6,
@@ -118,6 +113,8 @@ function KSB61EngineLoad(){
                 }
             },
         }
+
+    console.log("intitating engine load graph view");
 
     return (
         <Line data={data6} options={option6}/>

@@ -23,6 +23,7 @@ var getMaxEngineLoad= 0;
 function KSB61Flow(){
     console.log("inititated");
     const [dataSet, setDataSet] = useState(null);
+    const [date, setDate] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -31,10 +32,12 @@ function KSB61Flow(){
         async function fetchData() {
           try {
             console.log('Startuing fetching');
-            const data = await fetch('http://10.23.104.222:3030/all-data?table=tb_ksb61').then(data => data.json());
+            const data = await fetch('http://10.23.104.222:3030/flow-data?table=tb_ksb61').then(data => data.json());
             console.log("Inside fetch data");
-            const getDataValue = data.data;
+            const getDataValue = data.data_flow;
+            const dateValue = data.data_time;
             setDataSet(getDataValue);
+            setDate(dateValue);
             setLoading(false);
             console.log("set loading to false");
           } catch (error) {
@@ -45,8 +48,8 @@ function KSB61Flow(){
           }
         }
 
-        setInterval(fetchData, 300000);
-      }, [dataSet]);
+        fetchData();
+      }, []);
 
     
     if (loading) {
@@ -58,26 +61,16 @@ function KSB61Flow(){
     }
 
     // cretae array for key of objecy
-    console.log("intitating first graph");
-    var arrKey = [];
-    for(let i = dataSet.length - 1; i > 0; i--){
-        let getStr = dataSet[i].time.toString();
-        year = getStr.substring(0, getStr.indexOf("-"))
-        arrKey = [...arrKey, getStr.substring(getStr.indexOf("-")+1, getStr.indexOf("."))]
-    }
+    console.log("intitating flow graph data");
+    var arrKey = date;
+    console.log('get date');
+    console.log(date);
 
     // create array for value of object
-    var arrVal = [];
+    var arrVal = dataSet;
 
     // assign ket array to labels
     const labels = arrKey;
-
-    for (let i = dataSet.length - 1; i > 0; i--) {
-        arrVal = [...arrVal, dataSet[i].flow];
-    }
-
-    // console.log("Arr val get : ");
-    // console.log(arrVal);
 
     const data = {
     labels: labels,
@@ -121,6 +114,8 @@ function KSB61Flow(){
             }
         },
     }
+
+    console.log("intitating flow graph view");
 
     return (
         <Line data={data} options={option1}/>

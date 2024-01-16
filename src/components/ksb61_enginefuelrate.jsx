@@ -23,6 +23,7 @@ var getMaxEngineLoad= 0;
 function KSB61EngineFuelRate(){
     console.log("inititated2");
     const [dataSet, setDataSet] = useState(null);
+    const [dataDate, setDataDate] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -30,11 +31,13 @@ function KSB61EngineFuelRate(){
     useEffect(() => {
         async function fetchData() {
           try {
-            console.log('Startuing fetching2');
-            const data = await fetch('http://10.23.104.222:3030/all-data?table=tb_ksb61').then(data => data.json());
+            console.log('Starting fetching engine fuel rate dara');
+            const data = await fetch('http://10.23.104.222:3030/fuel-data?table=tb_ksb61').then(data => data.json());
             console.log("Inside fetch data");
-            const getDataValue = data.data;
+            const getDataValue = data.data_fuel;
+            const getDataDate = data.data_time;
             setDataSet(getDataValue);
+            setDataDate(getDataDate);
             setLoading(false);
             console.log("set loading to false");
           } catch (error) {
@@ -58,23 +61,15 @@ function KSB61EngineFuelRate(){
     }
 
     // seventh graph engine_fuel_rate
-    console.log("intitating seventh graph");
+    console.log("intitating fuel rate graph data");
     // cretae array for key of objecy
-    var arrKey7 = [];
-    for(let i = dataSet.length - 1; i > 0; i--){
-        let getStr = dataSet[i].time.toString();
-        arrKey7 = [...arrKey7, getStr]
-    }
+    var arrKey7 = dataDate;
 
     // create array for value of object
-    var arrVal7 = [];
+    var arrVal7 = dataSet;
 
     // assign ket array to labels
     const labels7 = arrKey7;
-
-    for (let i = dataSet.length - 1; i > 0; i--) {
-        arrVal7 = [...arrVal7, dataSet[i].engine_fuel_rate];
-    }
 
     const data7 = {
         labels: labels7,
@@ -119,6 +114,8 @@ function KSB61EngineFuelRate(){
                 }
             },
         }
+
+    console.log("intitating fuel rate graph view");
 
     return (
         <Line data={data7} options={option7}/>
