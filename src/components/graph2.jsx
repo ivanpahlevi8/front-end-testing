@@ -32,14 +32,14 @@ function Graph() {
                 <div class="col-sm" style={{margin: 0}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                             <div className="card-body">
-                                
+                            <KSB61Pressure />
                             </div>
                         </div>
                     </div>
                 <div class="col-sm no-gutters" style={{margin: 0}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                         <div className="card-body">
-                            
+                        <KSB61Temp />
                         </div>
                     </div>
                 </div>
@@ -48,21 +48,21 @@ function Graph() {
                 <div class="col-sm" style={{margin: 0}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px'}}>
                         <div className="card-body">
-                            
+                        <KSB61EngineSpeed />
                         </div>
                     </div>
                 </div>
                 <div class="col-sm" style={{margin: 0}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                         <div className="card-body">
-                            
+                        <KSB61EngineLoad />
                         </div>
                     </div>
                 </div>
                 <div class="col-sm" style={{margin: 0}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                         <div className="card-body">
-                            
+                        <KSB61EngineFuelRate />
                         </div>
                     </div>
                 </div>

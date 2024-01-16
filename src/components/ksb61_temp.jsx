@@ -75,7 +75,7 @@ function KSB61Temp(){
         labels: labels3,
         datasets: [
             {
-            label: "Pump De Temperature",
+            label: "Pump De Temperature (°C)",
             backgroundColor: "rgb(0, 0, 180)",
             borderColor: "rgb(0, 0, 180)",
             data: arrVal3,

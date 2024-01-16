@@ -75,7 +75,7 @@ function KSB61EngineSpeed(){
         labels: labels5,
         datasets: [
             {
-            label: "Engine Speed",
+            label: "Engine Speed(RPM)",
             backgroundColor: "rgb(0, 0, 180)",
             borderColor: "rgb(0, 0, 180)",
             data: arrVal5,

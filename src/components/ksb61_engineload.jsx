@@ -75,7 +75,7 @@ function KSB61EngineLoad(){
         labels: labels6,
         datasets: [
             {
-            label: "Engine Load",
+            label: "Engine Load(%)",
             backgroundColor: "rgb(0, 0, 180)",
             borderColor: "rgb(0, 0, 180)",
             data: arrVal6,

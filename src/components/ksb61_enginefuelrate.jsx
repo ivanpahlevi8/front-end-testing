@@ -75,7 +75,7 @@ function KSB61EngineFuelRate(){
         labels: labels7,
         datasets: [
             {
-            label: "Engine Fuel Rate",
+            label: "Engine Fuel Rate(L/h)",
             backgroundColor: "rgb(0, 0, 180)",
             borderColor: "rgb(0, 0, 180)",
             data: arrVal7,

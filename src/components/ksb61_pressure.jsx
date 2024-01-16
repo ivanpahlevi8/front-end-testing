@@ -75,7 +75,7 @@ function KSB61Pressure(){
          labels: labels2,
          datasets: [
              {
-             label: "Discharge Pressure",
+             label: "Discharge Pressure(bar)",
              backgroundColor: "rgb(0, 0, 180)",
              borderColor: "rgb(0, 0, 180)",
              data: arrVal2,

@@ -76,7 +76,7 @@ function KSB61Flow(){
     labels: labels,
     datasets: [
         {
-        label: "Flows",
+        label: "Flows (m3/h)",
         backgroundColor: "rgb(0, 0, 180)",
         borderColor: "rgb(0, 0, 180)",
         data: arrVal,
