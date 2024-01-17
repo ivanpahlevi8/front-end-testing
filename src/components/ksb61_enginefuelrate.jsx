@@ -49,7 +49,7 @@ function KSB61EngineFuelRate(){
         }
     
         fetchData();
-      }, []);
+      }, [dataSet]);
 
     
     if (loading) {

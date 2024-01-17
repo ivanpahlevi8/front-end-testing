@@ -49,7 +49,7 @@ function KSB61EngineSpeed(){
         }
     
         fetchData();
-      }, []);
+      }, [dataSet]);
 
     
     if (loading) {

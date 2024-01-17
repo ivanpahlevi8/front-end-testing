@@ -49,7 +49,7 @@ function KSB61Pressure(){
         }
     
         fetchData();
-      }, []);
+      }, [dataSet]);
 
     
     if (loading) {

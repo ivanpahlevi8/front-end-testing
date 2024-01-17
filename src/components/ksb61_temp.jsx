@@ -49,7 +49,7 @@ function KSB61Temp(){
         }
     
         fetchData();
-      }, []);
+      }, [dataSet]);
 
     
     if (loading) {
