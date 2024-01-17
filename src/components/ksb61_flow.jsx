@@ -76,15 +76,18 @@ function KSB61Flow(){
     labels: labels,
     datasets: [
         {
-        label: "Flows (m3/h)",
-        backgroundColor: "rgb(0, 0, 180)",
-        borderColor: "rgb(0, 0, 180)",
-        data: arrVal,
+          pointRadius: 0,
+          spanGaps: true,
+          label: "Flows (m3/h)",
+          backgroundColor: "rgb(0, 0, 180)",
+          borderColor: "rgb(0, 0, 180)",
+          data: arrVal,
         },
     ],
     };
 
     const option1 = {
+        animation: false,
         responsive: true,
         maintainAspectRatio: false,
         scales: {

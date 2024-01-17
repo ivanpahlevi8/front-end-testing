@@ -75,15 +75,18 @@ function KSB61Temp(){
         labels: labels3,
         datasets: [
             {
-            label: "Pump De Temperature (°C)",
-            backgroundColor: "rgb(0, 0, 180)",
-            borderColor: "rgb(0, 0, 180)",
-            data: arrVal3,
+                pointRadius: 0,
+                spanGaps: true,
+                label: "Pump De Temperature (°C)",
+                backgroundColor: "rgb(0, 0, 180)",
+                borderColor: "rgb(0, 0, 180)",
+                data: arrVal3,
             },
         ],
         };
 
         const option3 = {
+            animation: false,
             responsive: true,
             maintainAspectRatio: false,
             scales: {

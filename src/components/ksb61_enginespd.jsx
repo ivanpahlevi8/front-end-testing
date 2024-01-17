@@ -75,15 +75,18 @@ function KSB61EngineSpeed(){
         labels: labels5,
         datasets: [
             {
-            label: "Engine Speed(RPM)",
-            backgroundColor: "rgb(0, 0, 180)",
-            borderColor: "rgb(0, 0, 180)",
-            data: arrVal5,
+              pointRadius: 0,
+              spanGaps: true,
+              label: "Engine Speed(RPM)",
+              backgroundColor: "rgb(0, 0, 180)",
+              borderColor: "rgb(0, 0, 180)",
+              data: arrVal5,
             },
         ],
         };
 
         const option5 = {
+            animation: false,
             responsive: true,
             maintainAspectRatio: false,
             scales: {

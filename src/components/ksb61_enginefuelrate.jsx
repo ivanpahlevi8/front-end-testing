@@ -75,16 +75,19 @@ function KSB61EngineFuelRate(){
         labels: labels7,
         datasets: [
             {
-            label: "Engine Fuel Rate(L/h)",
-            backgroundColor: "rgb(0, 0, 180)",
-            borderColor: "rgb(0, 0, 180)",
-            data: arrVal7,
+                pointRadius: 0,
+                spanGaps: true,
+                label: "Engine Fuel Rate(L/h)",
+                backgroundColor: "rgb(0, 0, 180)",
+                borderColor: "rgb(0, 0, 180)",
+                data: arrVal7,
             },
         ],
         };
 
     
         const option7 = {
+            animation: false,
             responsive: true,
             maintainAspectRatio: false,
             scales: {

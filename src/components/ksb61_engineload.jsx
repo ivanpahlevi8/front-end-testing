@@ -75,15 +75,18 @@ function KSB61EngineLoad(){
         labels: labels6,
         datasets: [
             {
-            label: "Engine Load(%)",
-            backgroundColor: "rgb(0, 0, 180)",
-            borderColor: "rgb(0, 0, 180)",
-            data: arrVal6,
+                pointRadius: 0,
+                spanGaps: true,
+                label: "Engine Load(%)",
+                backgroundColor: "rgb(0, 0, 180)",
+                borderColor: "rgb(0, 0, 180)",
+                data: arrVal6,
             },
         ],
         };
 
         const option6 = {
+            animation: false,
             responsive: true,
             maintainAspectRatio: false,
             scales: {

@@ -75,15 +75,18 @@ function KSB61Pressure(){
          labels: labels2,
          datasets: [
              {
-             label: "Discharge Pressure(bar)",
-             backgroundColor: "rgb(0, 0, 180)",
-             borderColor: "rgb(0, 0, 180)",
-             data: arrVal2,
+                pointRadius: 0,
+                spanGaps: true,
+                label: "Discharge Pressure(bar)",
+                backgroundColor: "rgb(0, 0, 180)",
+                borderColor: "rgb(0, 0, 180)",
+                data: arrVal2,
              },
          ],
          };
  
          const option2 = {
+             animation: false,
              responsive: true,
              maintainAspectRatio: false,
              scales: {
