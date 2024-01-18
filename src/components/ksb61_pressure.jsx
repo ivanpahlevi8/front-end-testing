@@ -32,7 +32,7 @@ function KSB61Pressure(){
         async function fetchData() {
           try {
             console.log('Starting fetching pressure data');
-            const data = await fetch('http://10.23.104.222:3030/press-data?table=tb_ksb61').then(data => data.json());
+            const data = await fetch('http://10.23.104.222:3030/press-data-date?table=tb_ksb61').then(data => data.json());
             console.log("Inside fetch data");
             const getDataValue = data.data_press;
             const getDate = data.data_time;

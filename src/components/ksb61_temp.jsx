@@ -32,7 +32,7 @@ function KSB61Temp(){
         async function fetchData() {
           try {
             console.log('Starting fetching temperature data');
-            const data = await fetch('http://10.23.104.222:3030/temp-data?table=tb_ksb61').then(data => data.json());
+            const data = await fetch('http://10.23.104.222:3030/temp-data-date?table=tb_ksb61').then(data => data.json());
             console.log("Inside fetch data");
             const getDataValue = data.data_temp;
             const getDataDate = data.data_time;
