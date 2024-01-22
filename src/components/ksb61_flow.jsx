@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import Chart                          from "chart.js/auto";
 import { Line }                       from "react-chartjs-2";
 
-import { Line } from "react-chartjs-2";
-
 var year = "";
 
 // create value for maximum value of graph
@@ -26,21 +24,23 @@ function KSB61Flow(){
     console.log("inititated");
     const [dataSet, setDataSet] = useState(null);
     const [date, setDate] = useState(null);
+    const [dateOnly, setDateOnly] = useState(null)
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [numDay, setNumDay] = useState(0);
 
 
     useEffect(() => {
         async function fetchData() {
           try {
             console.log('Startuing fetching');
-            const data = await fetch('http://10.23.104.222:3030/flow-data-date?table=tb_ksb61').then(data => data.json());
+            const data = await fetch('http://10.23.107.180:3030/flow-data-date?table=tb_ksb61').then(data => data.json());
             console.log("Inside fetch data");
             const getDataValue = data.data_flow;
             const dateValue = data.data_time;
+            const getDateOnly = data.date;
             setDataSet(getDataValue);
             setDate(dateValue);
+            setDateOnly(getDateOnly)
             setLoading(false);
             console.log("set loading to false");
           } catch (error) {
@@ -66,8 +66,8 @@ function KSB61Flow(){
     // cretae array for key of objecy
     console.log("intitating flow graph data");
     var arrKey = date;
-    console.log('get date');
-    console.log(date);
+    // console.log('get date');
+    // console.log(date);
 
     // create array for value of object
     var arrVal = dataSet;
@@ -126,31 +126,7 @@ function KSB61Flow(){
             grid: {
               drawOnChartArea: false, // only want the grid lines for one axis to show up
             },
-            ticks: {
-              callback: function(label) {
-                let realLabel = this.getLabelForValue(label)
-                var month = realLabel.split("T")[0];
-
-                // algoritm to show
-                // get current time
-                const date = new Date();
-                const currentTime = date.setDate(date.getDate());
-                const twoDaysAgo = date.setDate(date.getDate() - 2);
-
-                // get data time
-                const dataTime = Date.parse(realLabel);
-                
-                if (dataTime <= twoDaysAgo && numDay < 1) {
-                  setNumDay(1);
-                  return month;
-                } else if(dataTime < currentTime && numDay < 2) {
-                  setNumDay(2);
-                  return month;
-                } else {
-                  return '';
-                }
-              }
-            }
+            labels: dateOnly,
           },
       },
       plugins: {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Chart from "chart.js/auto";
-import { Line } from "react-chartjs-2";
+import Chart                          from "chart.js/auto";
+import { Line }                       from "react-chartjs-2";
 
 var year = "";
 
@@ -24,6 +24,7 @@ function KSB61Temp(){
     console.log("inititated");
     const [dataSet, setDataSet] = useState(null);
     const [dataDate, setDataDate] = useState(null);
+    const [dateOnly, setDateOnly] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -32,12 +33,14 @@ function KSB61Temp(){
         async function fetchData() {
           try {
             console.log('Starting fetching temperature data');
-            const data = await fetch('http://10.23.104.222:3030/temp-data-date?table=tb_ksb61').then(data => data.json());
+            const data = await fetch('http://10.23.107.180:3030/temp-data-date?table=tb_ksb61').then(data => data.json());
             console.log("Inside fetch data");
             const getDataValue = data.data_temp;
             const getDataDate = data.data_time;
+            const getDateOnly = data.date;
             setDataSet(getDataValue);
             setDataDate(getDataDate);
+            setDateOnly(getDateOnly);
             setLoading(false);
             console.log("set loading to false");
           } catch (error) {
@@ -92,27 +95,47 @@ function KSB61Temp(){
             scales: {
                 y: {
                     min: 0,
-                    max: 200,
+                    max: 150,
                     ticks: {
-                        
+                        font: {
+                            size: 20,
+                            weight: 'bold',
+                        }
                     }
                   },
                 x: {
-                title: {
-                    display: true,
-                    text: year,
-                    font:{
-                        weight: 'bold'
-                    },
+                    ticks: {
+                        font:{
+                            weight: 'bold'
+                        },
+                        autoSkip: true,
+                        maxRotation: 90,
+                        minRotation: 90,
+                        callback: function(label) {
+                          let realLabel = this.getLabelForValue(label)
+                          var time = realLabel.split("T")[1];
+                          var timeValue = time.split("+")[0];
+                          var getValue = timeValue.split(".")[0];
+                          return getValue;
+                        }
+                    }
                 },
-                ticks: {
-                    font:{
-                        weight: 'bold'
+                xAxis2: {
+                    type: "category",
+                    grid: {
+                        drawOnChartArea: false, // only want the grid lines for one axis to show up
                     },
-                    autoSkip: true,
-                    maxRotation: 90,
-                    minRotation: 90
-                }
+                    labels: dateOnly,
+                },
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 20,
+                            weight: 'bold',
+                        }
+                    }
                 }
             },
         }
