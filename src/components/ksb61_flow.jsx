@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Chart from "chart.js/auto";
+import Chart                          from "chart.js/auto";
+import { Line }                       from "react-chartjs-2";
+
 import { Line } from "react-chartjs-2";
 
 var year = "";
@@ -87,36 +89,62 @@ function KSB61Flow(){
     };
 
     const option1 = {
-        animation: false,
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            y: {
-                min: 0,
-                max: maxValueFlow,
-                ticks: {
-                    
-                }
-              },
-            x: {
-            title: {
-                display: true,
-                text: year,
-                font:{
-                    weight: 'bold'
-                },
+      animation: false,
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+          y: {
+              min: 0,
+              max: maxValueFlow,
+              ticks: {
+                  font: {
+                    size: 20,
+                    weight: 'bold',
+                  }
+              }
             },
+          x: {
             ticks: {
                 font:{
                     weight: 'bold'
                 },
                 autoSkip: true,
                 maxRotation: 90,
-                minRotation: 90
+                minRotation: 90,
+                callback: function(label) {
+                  let realLabel = this.getLabelForValue(label)
+                  var time = realLabel.split("T")[1];
+                  var timeValue = time.split("+")[0];
+                  var getValue = timeValue.split(".")[0];
+                  return getValue;
+                }
             }
+          },
+          xAxis2: {
+            type: "category",
+            grid: {
+              drawOnChartArea: false, // only want the grid lines for one axis to show up
+            },
+            ticks: {
+              callback: function(label) {
+                let realLabel = this.getLabelForValue(label)
+                var month = realLabel.split("T")[0];
+                return month;
+              }
             }
-        },
-    }
+          },
+      },
+      plugins: {
+        legend: {
+          labels: {
+            font: {
+              size: 20,
+              weight: 'bold',
+            }
+          }
+        }
+      }
+  }
 
     console.log("intitating flow graph view");
 
