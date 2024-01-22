@@ -140,7 +140,7 @@ function KSB61Flow(){
                 // get data time
                 const dataTime = Date.parse(realLabel);
                 
-                if (dataTime < twoDaysAgo && numDay < 1) {
+                if (dataTime <= twoDaysAgo && numDay < 1) {
                   setNumDay(1);
                   return month;
                 } else if(dataTime < currentTime && numDay < 2) {
@@ -149,8 +149,6 @@ function KSB61Flow(){
                 } else {
                   return '';
                 }
-
-                return month;
               }
             }
           },
