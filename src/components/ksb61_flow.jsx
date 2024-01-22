@@ -28,6 +28,7 @@ function KSB61Flow(){
     const [date, setDate] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [numDay, setNumDay] = useState(0);
 
 
     useEffect(() => {
@@ -129,6 +130,26 @@ function KSB61Flow(){
               callback: function(label) {
                 let realLabel = this.getLabelForValue(label)
                 var month = realLabel.split("T")[0];
+
+                // algoritm to show
+                // get current time
+                const date = new Date();
+                const currentTime = date.setDate(date.getDate());
+                const twoDaysAgo = date.setDate(date.getDate() - 2);
+
+                // get data time
+                const dataTime = Date.parse(realLabel);
+                
+                if (dataTime < twoDaysAgo && numDay < 1) {
+                  setNumDay(1);
+                  return month;
+                } else if(dataTime < currentTime && numDay < 2) {
+                  setNumDay(2);
+                  return month;
+                } else {
+                  return '';
+                }
+
                 return month;
               }
             }
