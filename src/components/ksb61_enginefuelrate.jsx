@@ -33,7 +33,7 @@ function KSB61EngineFuelRate(){
         async function fetchData() {
           try {
             console.log('Starting fetching engine fuel rate data');
-            const data = await fetch('http://10.23.107.180:3030/fuel-data-date?table=tb_ksb61').then(data => data.json());
+            const data = await fetch('http://10.23.107.201:3030/fuel-data-date?table=tb_ksb61').then(data => data.json());
             console.log("Inside fetch data");
             const getDataValue = data.data_fuel;
             const getDataDate = data.data_time;
@@ -56,7 +56,15 @@ function KSB61EngineFuelRate(){
 
     
     if (loading) {
-    return <div>Loading...</div>;
+    return (
+        <>
+        <div class="text-center p-10">
+        <div class="spinner-border m-10" role="status">
+        </div>
+        <h3>Loading...</h3>
+      </div>
+        </>
+        );
     }
 
     if (error) {
@@ -113,11 +121,9 @@ function KSB61EngineFuelRate(){
                         maxRotation: 90,
                         minRotation: 90,
                         callback: function(label) {
-                          let realLabel = this.getLabelForValue(label)
-                          var time = realLabel.split("T")[1];
-                          var timeValue = time.split("+")[0];
-                          var getValue = timeValue.split(".")[0];
-                          return getValue;
+                            let realLabel = this.getLabelForValue(label)
+                            var time = realLabel.split(" ")[1];
+                            return time;
                         }
                     }
                 },

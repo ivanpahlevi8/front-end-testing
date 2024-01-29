@@ -33,7 +33,7 @@ function KSB61Pressure(){
         async function fetchData() {
           try {
             console.log('Starting fetching pressure data');
-            const data = await fetch('http://10.23.107.180:3030/press-data-date?table=tb_ksb61').then(data => data.json());
+            const data = await fetch('http://10.23.107.201:3030/press-data-date?table=tb_ksb61').then(data => data.json());
             console.log("Inside fetch data");
             const getDataValue = data.data_press;
             const getDate = data.data_time;
@@ -56,7 +56,15 @@ function KSB61Pressure(){
 
     
     if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <>
+      <div class="text-center p-10">
+        <div class="spinner-border text-primary" role="status">
+        </div>
+        <h3>Loading...</h3>
+      </div>
+      </>
+      );
     }
 
     if (error) {
@@ -113,10 +121,8 @@ function KSB61Pressure(){
                         minRotation: 90,
                         callback: function(label) {
                           let realLabel = this.getLabelForValue(label)
-                          var time = realLabel.split("T")[1];
-                          var timeValue = time.split("+")[0];
-                          var getValue = timeValue.split(".")[0];
-                          return getValue;
+                          var time = realLabel.split(" ")[1];
+                          return time;
                         }
                     }
                   },
