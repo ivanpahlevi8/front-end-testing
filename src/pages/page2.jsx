@@ -1,11 +1,10 @@
-import Graph from "../components/graph2";
+import Graph2 from "../components/graph2";
 
 function Traffic(){
-    var data = [];
     console.log("after fetch")
     return (
         <>
-            <Graph load={data}/>
+            <Graph2/>
         </>
     )
 }

@@ -20,7 +20,7 @@ var getMaxFuelRate = 0;
 var getMaxEngineSpeed = 0;
 var getMaxEngineLoad= 0;
 
-function KSB61Pressure(){
+function KSB61Pressure({url}){
     console.log("inititated2");
     const [dataSet, setDataSet] = useState(null);
     const [dataDate, setDataDate] = useState(null);
@@ -33,7 +33,7 @@ function KSB61Pressure(){
         async function fetchData() {
           try {
             console.log('Starting fetching pressure data');
-            const data = await fetch('http://10.23.110.17:3030/press-data-date?table=tb_ksb61').then(data => data.json());
+            const data = await fetch(url).then(data => data.json());
             console.log("Inside fetch data");
             const getDataValue = data.data_press;
             const getDate = data.data_time;

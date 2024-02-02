@@ -20,7 +20,7 @@ var getMaxFuelRate = 0;
 var getMaxEngineSpeed = 0;
 var getMaxEngineLoad= 0;
 
-function KSB61Flow(){
+function KSB61Flow({url}){
     console.log("inititated");
     const [dataSet, setDataSet] = useState(null);
     const [date, setDate] = useState(null);
@@ -33,7 +33,7 @@ function KSB61Flow(){
         async function fetchData() {
           try {
             console.log('Startuing fetching');
-            const data = await fetch('http://10.23.110.17:3030/flow-data-date?table=tb_ksb61').then(data => data.json());
+            const data = await fetch(url).then(data => data.json());
             console.log("Inside fetch data");
             const getDataValue = data.data_flow;
             const dateValue = data.data_time;

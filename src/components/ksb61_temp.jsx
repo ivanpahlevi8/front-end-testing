@@ -20,7 +20,7 @@ var getMaxFuelRate = 0;
 var getMaxEngineSpeed = 0;
 var getMaxEngineLoad= 0;
 
-function KSB61Temp(){
+function KSB61Temp({url}){
     console.log("inititated");
     const [dataSet, setDataSet] = useState(null);
     const [dataDate, setDataDate] = useState(null);
@@ -33,7 +33,7 @@ function KSB61Temp(){
         async function fetchData() {
           try {
             console.log('Starting fetching temperature data');
-            const data = await fetch('http://10.23.110.17:3030/temp-data-date?table=tb_ksb61').then(data => data.json());
+            const data = await fetch(url).then(data => data.json());
             console.log("Inside fetch data");
             const getDataValue = data.data_temp;
             const getDataDate = data.data_time;
