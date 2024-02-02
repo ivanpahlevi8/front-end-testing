@@ -58,11 +58,9 @@ function KSB61EngineFuelRate({url}){
     if (loading) {
     return (
         <>
-        <div class="text-center p-10">
-        <div class="spinner-border m-10" role="status">
+        <div class="spinner-grow" role="status">
         </div>
         <h3>Loading...</h3>
-      </div>
         </>
         );
     }
@@ -89,8 +87,8 @@ function KSB61EngineFuelRate({url}){
                 pointRadius: 0,
                 spanGaps: true,
                 label: "Engine Fuel Rate(L/h)",
-                backgroundColor: "rgb(0, 0, 180)",
-                borderColor: "rgb(0, 0, 180)",
+                backgroundColor: "rgb(0, 82, 165)",
+                borderColor: "rgb(0, 82, 165)",
                 data: arrVal7,
             },
         ],
