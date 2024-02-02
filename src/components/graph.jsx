@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Chart from "chart.js/auto";
-import { Line } from "react-chartjs-2";
+import { Line }                       from "react-chartjs-2";
+
 
 function Graph() {
     const [dataSet, setDataSet] = useState([]);
@@ -69,7 +69,7 @@ function Graph() {
     labels: labels,
     datasets: [
         {
-        label: "Todays Flows Value",
+        label: "Flows Value",
         backgroundColor: "rgb(255, 99, 132)",
         borderColor: "rgb(255, 99, 132)",
         data: arrVal,
