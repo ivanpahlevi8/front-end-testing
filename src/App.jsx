@@ -12,8 +12,8 @@ function App() {
 
       <Router>
         <Routes>
-          <Route path='/ksb60' element={<Traffic/>}/>
-          <Route path='/ksb61' element={<Traffic2/>}/>
+          <Route path='/ksb61realtime/' element={<Traffic/>}/>
+          <Route path='/ksb61/' element={<Traffic2/>}/>
         </Routes>
       </Router>
     </>
