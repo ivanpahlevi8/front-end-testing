@@ -7,7 +7,7 @@ import KSB61EngineLoad                from "./ksb61_engineload";
 import KSB61EngineFuelRate            from "./ksb61_enginefuelrate";
 
 
-function Graph() {
+function Graph2() {
     return (
         <div className="container-fluid" style={{backgroundColor: '86A7FC'}}>
             <div className="row g-0 mt-2">
@@ -25,21 +25,21 @@ function Graph() {
                 <div className="col-sm" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                         <div className="card-body p-0">
-                            <KSB61Flow />
+                            <KSB61Flow url={'http://10.23.110.17:3030/flow-data-date?table=tb_ksb61'}/>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                             <div className="card-body p-0">
-                            <KSB61Pressure />
+                            <KSB61Pressure url={'http://10.23.110.17:3030/press-data-date?table=tb_ksb61'}/>
                             </div>
                         </div>
                     </div>
                 <div class="col-sm no-gutters" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                         <div className="card-body p-0">
-                            <KSB61Temp />
+                            <KSB61Temp url={'http://10.23.110.17:3030/temp-data-date?table=tb_ksb61'}/>
                         </div>
                     </div>
                 </div>
@@ -48,21 +48,21 @@ function Graph() {
                 <div class="col-sm" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px'}}>
                         <div className="card-body p-0">
-                            <KSB61EngineSpeed />
+                            <KSB61EngineSpeed url={'http://10.23.110.17:3030/speed-data-date?table=tb_ksb61'}/>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                         <div className="card-body p-0">
-                            <KSB61EngineLoad />
+                            <KSB61EngineLoad url={'http://10.23.110.17:3030/load-data-date?table=tb_ksb61'}/>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                         <div className="card-body p-0">
-                            <KSB61EngineFuelRate />
+                            <KSB61EngineFuelRate url={'http://10.23.110.17:3030/fuel-data-date?table=tb_ksb61'}/>
                         </div>
                     </div>
                 </div>
@@ -71,4 +71,4 @@ function Graph() {
     );
 }
 
-export default Graph
+export default Graph2
