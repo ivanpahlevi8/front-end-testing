@@ -33,11 +33,7 @@ function KSB61Flow({url}){
         async function fetchData() {
           try {
             console.log('Startuing fetching');
-<<<<<<< HEAD
-            const data = await fetch('http://10.23.104.222:3030/flow-data-date?table=tb_ksb61').then(data => data.json());
-=======
             const data = await fetch(url).then(data => data.json());
->>>>>>> 29ab3fa47ae5e6f868846681ffe324ea37c618c0
             console.log("Inside fetch data");
             const getDataValue = data.data_flow;
             const dateValue = data.data_time;

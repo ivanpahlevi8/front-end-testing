@@ -33,11 +33,7 @@ function KSB61EngineSpeed({url}){
         async function fetchData() {
           try {
             console.log('Starting fetching speed data...');
-<<<<<<< HEAD
-            const data = await fetch('http://10.23.104.222:3030/speed-data-date?table=tb_ksb61').then(data => data.json());
-=======
             const data = await fetch(url).then(data => data.json());
->>>>>>> 29ab3fa47ae5e6f868846681ffe324ea37c618c0
             console.log("Inside fetch data");
             const getDataValue = data.data_speed;
             const getDataDate = data.data_time;
