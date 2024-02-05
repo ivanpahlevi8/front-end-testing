@@ -34,7 +34,7 @@ function KSB61EngineLoad(){
         async function fetchData() {
           try {
             console.log('Startuing fetching2');
-            const data = await fetch('http://10.23.107.180:3030/load-data-date?table=tb_ksb61').then(data => data.json());
+            const data = await fetch('http://10.23.104.222:3030/load-data-date?table=tb_ksb61').then(data => data.json());
             console.log("Inside fetch data");
             const getDataValue = data.data_load;
             const getDataDate = data.data_time;
