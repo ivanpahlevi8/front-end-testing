@@ -28,6 +28,11 @@ function KSB61EngineSpeed({url}){
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    // profile parameters
+    const [biggestValue, setBiggestValue] = useState(0);
+    const [smallestValue, setSmallestValue] = useState(0);
+    const [averageValue, setAverageValue] = useState(0.0);
+
 
     useEffect(() => {
         async function fetchData() {
@@ -35,13 +40,28 @@ function KSB61EngineSpeed({url}){
             console.log('Starting fetching speed data...');
             const data = await fetch(url).then(data => data.json());
             console.log("Inside fetch data");
+
+            // get value from response
             const getDataValue = data.data_speed;
             const getDataDate = data.data_time;
             const getDateOnly = data.date;
+
+            // get profile from response
+            const getSmallestValue = data.smallest_value;
+            const getBiggestValue = data.biggest_value;
+            const getAverageValue = data.average_value;
+            
+            // set value state
             setDataSet(getDataValue);
             setDataDate(getDataDate);
             setDateOnly(getDateOnly);
             setLoading(false);
+
+            // set profile state
+            setSmallestValue(getSmallestValue);
+            setBiggestValue(getBiggestValue);
+            setAverageValue(getAverageValue);
+
             console.log("set loading to false");
           } catch (error) {
             console.log('error happen');

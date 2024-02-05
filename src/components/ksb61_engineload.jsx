@@ -29,6 +29,11 @@ function KSB61EngineLoad({url}){
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    // profile parameters
+    const [biggestValue, setBiggestValue] = useState(0);
+    const [smallestValue, setSmallestValue] = useState(0);
+    const [averageValue, setAverageValue] = useState(0.0);
+
 
     useEffect(() => {
         async function fetchData() {
@@ -36,13 +41,29 @@ function KSB61EngineLoad({url}){
             console.log('Startuing fetching2');
             const data = await fetch(url).then(data => data.json());
             console.log("Inside fetch data");
+
+            // get value
             const getDataValue = data.data_load;
             const getDataDate = data.data_time;
             const getDateOnly = data.date;
+
+            // get profile value
+            const getSmallestValue = data.smallest_value;
+            const getBiggestValue = data.biggest_value;
+            const getAverageValue = data.average_value;
+            
+            // set value
             setDataSet(getDataValue);
             setDataDate(getDataDate);
             setDateOnly(getDateOnly);
             setLoading(false);
+
+            // set profile parameters
+            setSmallestValue(getSmallestValue)
+            setBiggestValue(getBiggestValue)
+            setAverageValue(getAverageValue)
+
+
             console.log("set loading to false");
           } catch (error) {
             console.log('error happen');
