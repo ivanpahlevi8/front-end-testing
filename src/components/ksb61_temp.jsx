@@ -33,11 +33,7 @@ function KSB61Temp({url}){
         async function fetchData() {
           try {
             console.log('Starting fetching temperature data');
-<<<<<<< HEAD
-            const data = await fetch('http://10.23.104.222:3030/temp-data-date?table=tb_ksb61').then(data => data.json());
-=======
             const data = await fetch(url).then(data => data.json());
->>>>>>> 29ab3fa47ae5e6f868846681ffe324ea37c618c0
             console.log("Inside fetch data");
             const getDataValue = data.data_temp;
             const getDataDate = data.data_time;
@@ -91,8 +87,8 @@ function KSB61Temp({url}){
                 pointRadius: 0,
                 spanGaps: true,
                 label: "Pump De Temperature (°C)",
-                backgroundColor: "rgb(0, 0, 180)",
-                borderColor: "rgb(0, 0, 180)",
+                backgroundColor: "rgba(0, 82, 165)",
+                borderColor: "rgba(0, 82, 165)",
                 data: arrVal3,
             },
         ],
