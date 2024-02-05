@@ -58,7 +58,7 @@ function KSB61EngineFuelRate({url}){
     if (loading) {
     return (
         <>
-        <div class="spinner-grow" role="status">
+        <div class="spinner-grow mt-10" role="status">
         </div>
         <h3>Loading...</h3>
         </>
