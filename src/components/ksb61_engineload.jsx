@@ -59,11 +59,9 @@ function KSB61EngineLoad({url}){
     if (loading) {
     return (
         <>
-        <div class="text-center p-10">
-        <div class="spinner-border m-10" role="status">
+        <div class="spinner-grow mt-10" role="status">
         </div>
         <h3>Loading...</h3>
-      </div>
         </>
         );
     }

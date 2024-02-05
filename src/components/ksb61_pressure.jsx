@@ -58,11 +58,9 @@ function KSB61Pressure({url}){
     if (loading) {
     return (
       <>
-      <div class="text-center p-10">
-        <div class="spinner-border text-primary" role="status">
+      <div class="spinner-grow mt-10" role="status">
         </div>
         <h3>Loading...</h3>
-      </div>
       </>
       );
     }
