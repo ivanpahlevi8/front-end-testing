@@ -60,11 +60,7 @@ function Graph2() {
                     </div>
                 </div>
                 <div class="col-sm" style={{margin: 2}}>
-                    <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
-                        <div className="card-body p-0">
-                            <KSB61EngineFuelRate url={'http://localhost:3030/fuel-data-date?table=tb_ksb61'}/>
-                        </div>
-                    </div>
+                    <KSB61EngineFuelRate url={'http://localhost:3030/fuel-data-date?table=tb_ksb61'}/>
                 </div>
             </div>
         </div>

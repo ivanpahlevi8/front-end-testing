@@ -166,16 +166,11 @@ function KSB61EngineFuelRate({url}){
 
     return (
         <>
-            <Line data={data7} options={option7}/>
-            <div className="row">
-                <div className="col">
-                    <p>Average : {averageValue}</p>
-                </div>
-                <div className="col">
-                    <p>Biggest value : {biggestValue}</p>
-                </div>
-                <div className="col">
-                    <p>Smallest value : {smallestValue}</p>
+            <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
+                <div className="card-body p-0">
+                    <Line data={data7} options={option7}/>
+                    <a class="card-link">Card link</a>
+                    <a class="card-link">Another link</a>
                 </div>
             </div>
         </>
