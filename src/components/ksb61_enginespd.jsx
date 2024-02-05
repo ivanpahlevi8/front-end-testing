@@ -147,7 +147,18 @@ function KSB61EngineSpeed({url}){
     console.log("intitating speed graph view");
 
     return (
-        <Line data={data5} options={option5}/>
+      <>
+      <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
+          <div className="card-body p-0">
+              <Line data={data5} options={option5}/>
+          </div>
+          <div className="card-footer border-top-0 mt-0">
+              <p className="me-4" style={{display: "inline"}}>Average : <b>{averageValue}</b> {'      '}</p>
+              <p className="me-4" style={{display: "inline"}}>Biggest Value : <b>{biggestValue}</b> {'        '}</p>
+              <p style={{display: "inline"}}>Smallest Value : <b>{smallestValue}</b> {'      '}</p>
+          </div>
+      </div>
+  </>
     )
 }
 

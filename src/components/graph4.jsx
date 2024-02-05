@@ -22,48 +22,24 @@ function Graph4(){
             </div>
             <div className="row g-0 mt-2">
                 <div className="col-sm" style={{margin: 2}}>
-                    <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
-                        <div className="card-body p-0">
-                            <KSB61Flow url={'http://localhost:3030/real/flow-data?table=tb_ksb60'}/>
-                        </div>
-                    </div>
+                    <KSB61Flow url={'http://localhost:3030/real/flow-data?table=tb_ksb60'}/>
                 </div>
                 <div class="col-sm" style={{margin: 2}}>
-                    <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
-                            <div className="card-body p-0">
-                            <KSB61Pressure url={'http://localhost:3030/real/press-data?table=tb_ksb60'}/>
-                            </div>
-                        </div>
-                    </div>
+                    <KSB61Pressure url={'http://localhost:3030/real/press-data?table=tb_ksb60'}/>
+                </div>
                 <div class="col-sm no-gutters" style={{margin: 2}}>
-                    <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
-                        <div className="card-body p-0">
-                            <KSB61Temp url={'http://localhost:3030/real/temp-data?table=tb_ksb60'}/>
-                        </div>
-                    </div>
+                    <KSB61Temp url={'http://localhost:3030/real/temp-data?table=tb_ksb60'}/>
                 </div>
             </div>
             <div class="row g-0">
                 <div class="col-sm" style={{margin: 2}}>
-                    <div className="card" style={{backgroundColor: 'red500', height: '500px'}}>
-                        <div className="card-body p-0">
-                            <KSB61EngineSpeed url={'http://localhost:3030/real/speed-data?table=tb_ksb60'}/>
-                        </div>
-                    </div>
+                    <KSB61EngineSpeed url={'http://localhost:3030/real/speed-data?table=tb_ksb60'}/>
                 </div>
                 <div class="col-sm" style={{margin: 2}}>
-                    <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
-                        <div className="card-body p-0">
-                            <KSB61EngineLoad url={'http://localhost:3030/real/load-data?table=tb_ksb60'}/>
-                        </div>
-                    </div>
+                    <KSB61EngineLoad url={'http://localhost:3030/real/load-data?table=tb_ksb60'}/>
                 </div>
                 <div class="col-sm" style={{margin: 2}}>
-                    <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
-                        <div className="card-body p-0">
-                            <KSB61EngineFuelRate url={'http://localhost:3030/real/fuel-data?table=tb_ksb60'}/>
-                        </div>
-                    </div>
+                    <KSB61EngineFuelRate url={'http://localhost:3030/real/fuel-data?table=tb_ksb60'}/>
                 </div>
             </div>
         </div>
