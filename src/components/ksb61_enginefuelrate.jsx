@@ -28,6 +28,10 @@ function KSB61EngineFuelRate({url}){
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    // profile parameters
+    const [biggestValue, setBiggestValue] = useState(0);
+    const [smallestValue, setSmallestValue] = useState(0);
+    const [averageValue, setAverageValue] = useState(0.0);
 
     useEffect(() => {
         async function fetchData() {
@@ -35,13 +39,26 @@ function KSB61EngineFuelRate({url}){
             console.log('Starting fetching engine fuel rate data');
             const data = await fetch(url).then(data => data.json());
             console.log("Inside fetch data");
+
+            // get value from response
             const getDataValue = data.data_fuel;
             const getDataDate = data.data_time;
             const getDateOnly = data.date;
+            const getSmallestValue = data.smallest_value;
+            const getBiggestValue = data.biggest_value;
+            const getAverageValue = data.average_value;
+
+            // set value
             setDataSet(getDataValue);
             setDataDate(getDataDate);
             setDateOnly(getDateOnly);
             setLoading(false);
+
+            // set profile parameters
+            setSmallestValue(getSmallestValue)
+            setBiggestValue(getBiggestValue)
+            setAverageValue(getAverageValue)
+
             console.log("set loading to false");
           } catch (error) {
             console.log('error happen');
@@ -148,7 +165,21 @@ function KSB61EngineFuelRate({url}){
     console.log("intitating fuel rate graph view");
 
     return (
-        <Line data={data7} options={option7}/>
+        <>
+            <Line data={data7} options={option7}/>
+            <div className="row">
+                <div className="col">
+                    <p>Average : {averageValue}</p>
+                </div>
+                <div className="col">
+                    <p>Biggest value : {biggestValue}</p>
+                </div>
+                <div className="col">
+                    <p>Smallest value : {smallestValue}</p>
+                </div>
+            </div>
+        </>
+        
     )
 }
 
