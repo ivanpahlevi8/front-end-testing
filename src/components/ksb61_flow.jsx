@@ -20,7 +20,7 @@ var getMaxFuelRate = 0;
 var getMaxEngineSpeed = 0;
 var getMaxEngineLoad= 0;
 
-function KSB61Flow(){
+function KSB61Flow({url}){
     console.log("inititated");
     const [dataSet, setDataSet] = useState(null);
     const [date, setDate] = useState(null);
@@ -33,7 +33,11 @@ function KSB61Flow(){
         async function fetchData() {
           try {
             console.log('Startuing fetching');
+<<<<<<< HEAD
             const data = await fetch('http://10.23.104.222:3030/flow-data-date?table=tb_ksb61').then(data => data.json());
+=======
+            const data = await fetch(url).then(data => data.json());
+>>>>>>> 29ab3fa47ae5e6f868846681ffe324ea37c618c0
             console.log("Inside fetch data");
             const getDataValue = data.data_flow;
             const dateValue = data.data_time;
@@ -56,7 +60,13 @@ function KSB61Flow(){
 
     
     if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <>
+      <div class="spinner-grow mt-10" role="status">
+        </div>
+        <h3>Loading...</h3>
+      </>
+      );
     }
 
     if (error) {
@@ -82,8 +92,8 @@ function KSB61Flow(){
           pointRadius: 0,
           spanGaps: true,
           label: "Flows (m3/h)",
-          backgroundColor: "rgb(0, 0, 180)",
-          borderColor: "rgb(0, 0, 180)",
+          backgroundColor: "rgb(0, 82, 165)",
+          borderColor: "rgb(0, 82, 165)",
           data: arrVal,
         },
     ],
@@ -114,10 +124,8 @@ function KSB61Flow(){
                 minRotation: 90,
                 callback: function(label) {
                   let realLabel = this.getLabelForValue(label)
-                  var time = realLabel.split("T")[1];
-                  var timeValue = time.split("+")[0];
-                  var getValue = timeValue.split(".")[0];
-                  return getValue;
+                  var time = realLabel.split(" ")[1];
+                  return time;
                 }
             }
           },

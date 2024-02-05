@@ -21,7 +21,7 @@ var getMaxFuelRate = 0;
 var getMaxEngineSpeed = 0;
 var getMaxEngineLoad= 0;
 
-function KSB61EngineLoad(){
+function KSB61EngineLoad({url}){
     console.log("inititated2");
     const [dataSet, setDataSet] = useState(null);
     const [dataDate, setDataDate] = useState(null);
@@ -34,7 +34,11 @@ function KSB61EngineLoad(){
         async function fetchData() {
           try {
             console.log('Startuing fetching2');
+<<<<<<< HEAD
             const data = await fetch('http://10.23.104.222:3030/load-data-date?table=tb_ksb61').then(data => data.json());
+=======
+            const data = await fetch(url).then(data => data.json());
+>>>>>>> 29ab3fa47ae5e6f868846681ffe324ea37c618c0
             console.log("Inside fetch data");
             const getDataValue = data.data_load;
             const getDataDate = data.data_time;
@@ -57,7 +61,13 @@ function KSB61EngineLoad(){
 
     
     if (loading) {
-    return <div>Loading...</div>;
+    return (
+        <>
+        <div class="spinner-grow mt-10" role="status">
+        </div>
+        <h3>Loading...</h3>
+        </>
+        );
     }
 
     if (error) {
@@ -82,8 +92,8 @@ function KSB61EngineLoad(){
                 pointRadius: 0,
                 spanGaps: true,
                 label: "Engine Load(%)",
-                backgroundColor: "rgb(0, 0, 180)",
-                borderColor: "rgb(0, 0, 180)",
+                backgroundColor: "rgb(0, 82, 165)",
+                borderColor: "rgb(0, 82, 165)",
                 data: arrVal6,
             },
         ],
@@ -113,11 +123,9 @@ function KSB61EngineLoad(){
                         maxRotation: 90,
                         minRotation: 90,
                         callback: function(label) {
-                          let realLabel = this.getLabelForValue(label)
-                          var time = realLabel.split("T")[1];
-                          var timeValue = time.split("+")[0];
-                          var getValue = timeValue.split(".")[0];
-                          return getValue;
+                            let realLabel = this.getLabelForValue(label)
+                            var time = realLabel.split(" ")[1];
+                            return time;
                         }
                     }
                 },
