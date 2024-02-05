@@ -33,7 +33,7 @@ function KSB61EngineFuelRate({url}){
         async function fetchData() {
           try {
             console.log('Starting fetching engine fuel rate data');
-    const data = await fetch(url).then(data => data.json());
+            const data = await fetch(url).then(data => data.json());
             console.log("Inside fetch data");
             const getDataValue = data.data_fuel;
             const getDataDate = data.data_time;
