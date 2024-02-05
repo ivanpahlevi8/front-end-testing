@@ -2,24 +2,8 @@ import React, { useEffect, useState } from "react";
 import Chart                          from "chart.js/auto";
 import { Line }                       from "react-chartjs-2";
 
-
-var year = "";
-
 // create value for maximum value of graph
-var maxValueFlow = 800;
-var maxValuePressure = 25;
-var maxValuePumpDeTemperature = 200;
-var maxValueEngineFuelRate= 500;
-var maxEngineSpeed = 2000;
 var maxEngineLoad = 150;
-
-// create variable to get value from response
-var getMaxValueFlow = 0;
-var getMaxValuePressure = 0;
-var getMaxTemp = 0;
-var getMaxFuelRate = 0;
-var getMaxEngineSpeed = 0;
-var getMaxEngineLoad= 0;
 
 function KSB61EngineLoad({url}){
     console.log("inititated2");
@@ -63,6 +47,9 @@ function KSB61EngineLoad({url}){
             setBiggestValue(getBiggestValue)
             setAverageValue(getAverageValue)
 
+            if(maxEngineLoad < getBiggestValue) {
+                maxEngineLoad = getBiggestValue;
+            }
 
             console.log("set loading to false");
           } catch (error) {
@@ -123,7 +110,7 @@ function KSB61EngineLoad({url}){
             scales: {
                 y: {
                     min: 0,
-                    max: 120,
+                    max: maxEngineLoad,
                     ticks: {
                         font: {
                             size: 20,
