@@ -25,21 +25,21 @@ function Graph2() {
                 <div className="col-sm" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                         <div className="card-body p-0">
-                            <KSB61Flow url={'http://localhost:3030/flow-data-date?table=tb_ksb61'}/>
+                            <KSB61Flow url={'http://ksb-iot.intranet:3030/flow-data-date?table=tb_ksb61'}/>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                             <div className="card-body p-0">
-                            <KSB61Pressure url={'http://localhost:3030/press-data-date?table=tb_ksb61'}/>
+                            <KSB61Pressure url={'http://ksb-iot.intranet:3030/press-data-date?table=tb_ksb61'}/>
                             </div>
                         </div>
                     </div>
                 <div class="col-sm no-gutters" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                         <div className="card-body p-0">
-                            <KSB61Temp url={'http://localhost:3030/temp-data-date?table=tb_ksb61'}/>
+                            <KSB61Temp url={'http://ksb-iot.intranet:3030/temp-data-date?table=tb_ksb61'}/>
                         </div>
                     </div>
                 </div>
@@ -48,21 +48,21 @@ function Graph2() {
                 <div class="col-sm" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px'}}>
                         <div className="card-body p-0">
-                            <KSB61EngineSpeed url={'http://localhost:3030/speed-data-date?table=tb_ksb61'}/>
+                            <KSB61EngineSpeed url={'http://ksb-iot.intranet:3030/speed-data-date?table=tb_ksb61'}/>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                         <div className="card-body p-0">
-                            <KSB61EngineLoad url={'http://localhost:3030/load-data-date?table=tb_ksb61'}/>
+                            <KSB61EngineLoad url={'http://ksb-iot.intranet:3030/load-data-date?table=tb_ksb61'}/>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                         <div className="card-body p-0">
-                            <KSB61EngineFuelRate url={'http://localhost:3030/fuel-data-date?table=tb_ksb61'}/>
+                            <KSB61EngineFuelRate url={'http://ksb-iot.intranet:3030/fuel-data-date?table=tb_ksb61'}/>
                         </div>
                     </div>
                 </div>
