@@ -3,7 +3,7 @@ import Chart                          from "chart.js/auto";
 import { Line }                       from "react-chartjs-2";
 
 // create value for maximum value of graph
-var maxEngineLoad = 150;
+var maxEngineLoad = 120;
 
 function KSB61EngineLoad({url}){
     console.log("inititated2");
@@ -67,9 +67,13 @@ function KSB61EngineLoad({url}){
     if (loading) {
     return (
         <>
-        <div class="spinner-grow mt-10" role="status">
+        <div className="card position-relative" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
+        <div className="position-absolute bottom-50 end-50 translate-middle">
+          <div className="spinner-grow" role="status">
+          </div>
+          <h3 >Loading...</h3>
         </div>
-        <h3>Loading...</h3>
+      </div>
         </>
         );
     }
@@ -162,9 +166,9 @@ function KSB61EngineLoad({url}){
                     <Line data={data6} options={option6}/>
                 </div>
                 <div className="card-footer border-top-0 mt-0">
-                    <p className="me-4" style={{display: "inline"}}>Average : <b>{averageValue}</b> {'      '}</p>
-                    <p className="me-4" style={{display: "inline"}}>Biggest Value : <b>{biggestValue}</b> {'        '}</p>
-                    <p style={{display: "inline"}}>Smallest Value : <b>{smallestValue}</b> {'      '}</p>
+                    <p className="me-2" style={{display: "inline"}}>Average : <b>{averageValue}</b></p>
+                    <p className="me-2" style={{display: "inline"}}>Biggest Value : <b>{biggestValue}</b></p>
+                    <p style={{display: "inline"}}>Smallest Value : <b>{smallestValue}</b></p>
                 </div>
             </div>
         </>
