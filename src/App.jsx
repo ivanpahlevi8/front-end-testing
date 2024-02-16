@@ -1,5 +1,10 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import Traffic from './pages/page1'
+import Traffic                                   from './pages/page1'
+import Traffic2                                  from './pages/page2'
+import Traffic3                                  from './pages/page3'
+import Traffic4                                  from './pages/page4'
+import Traffic5                                  from './pages/page5'
+
 import Traffic2 from './pages/page2'
 import Traffic3 from './pages/page3'
 import Traffic4 from './pages/page4'
@@ -13,6 +18,7 @@ function App() {
     <>
       <Router>
         <Routes>
+          <Route path='/' element={<Traffic2/>}/>
           <Route path='/ksb60' element={<Traffic/>}/>
           <Route path='/ksb61' element={<Traffic2/>}/>
           <Route path='/real/ksb61' element={<Traffic3/>}/>
