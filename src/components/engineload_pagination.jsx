@@ -1,39 +1,73 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Chart                          from "chart.js/auto";
 import { Line }                       from "react-chartjs-2";
 
 // create value for maximum value of graph
-var maxValueFlow = 800;
+var maxValueEngineLoad = 120;
 
-function KSB61Flow({url}){
-    console.log("inititated");
+function EngineLoadPagination({url}){
+    //console.log("inititated");
+
     const [dataSet, setDataSet] = useState(null);
     const [date, setDate] = useState(null);
     const [dateOnly, setDateOnly] = useState(null)
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [page, setPage] = useState(1);
 
-    // profile parameters
-    const [biggestValue, setBiggestValue] = useState(0);
-    const [smallestValue, setSmallestValue] = useState(0);
-    const [averageValue, setAverageValue] = useState(0.0);
+    // create function for back button
+    function backButtonClicked(event){
+        console.log("back button clicked");
+        console.log("page in back button : ", page);
+        if(page > 1) {
+            setPage(prevState => {
+                return prevState-1;
+            })
+        }
+        fetchData();
+    }
 
-    useEffect(() => {
-        async function fetchData() {
-          try {
-            console.log('Startuing fetching');
-            const data = await fetch(url).then(data => data.json());
-            console.log("Inside fetch data");
+    // create function for next button
+    function nextButtonClicked(event){
+        console.log("next button clicked");
+        let getData = page + 1;
+        console.log(getData);
+        setPage(prevState => prevState + 1);
+        fetchData();
+    }
+
+    async function fetchData() {
+        console.log("inside fetch data");
+        try {
+            // create payload request
+            const payload = {
+                num_data: 100,
+                current_page: page, 
+            };
+
+            // create json object
+            let jsonObj = JSON.stringify(payload);
+
+            // create header
+            const myHeader = new Headers();
+            myHeader.append("Accept", "application/json");
+            myHeader.append("Content-Type", "application/json");
+
+            // create req payload
+            var reqPayload = {
+                method: "POST",
+                headers: myHeader,
+                body: jsonObj,
+            }
+
+            //console.log('Startuing fetching');
+            const data = await fetch(url, reqPayload).then(data => data.json());
+            //console.log("Inside fetch data");
 
             // get value from response
-            const getDataValue = data.data_flow;
+            const getDataValue = data.data_load;
             const dateValue = data.data_time;
             const getDateOnly = data.date;
-
-            // get profile from response
-            const getSmallestValue = data.smallest_value;
-            const getBiggestValue = data.biggest_value;
-            const getAverageValue = data.average_value;
 
             // set value state
             setDataSet(getDataValue);
@@ -41,26 +75,18 @@ function KSB61Flow({url}){
             setDateOnly(getDateOnly)
             setLoading(false);
 
-            // set profile state
-            setSmallestValue(getSmallestValue);
-            setBiggestValue(getBiggestValue);
-            setAverageValue(getAverageValue);
-
-            if(maxValueFlow < getBiggestValue) {
-              maxValueFlow = getBiggestValue;
-            }
-
-            console.log("set loading to false");
-          } catch (error) {
-            console.log('error happen');
-            console.log(error);
-            setError(error);
-            setLoading(false);
-          }
+            //console.log("set loading to false");
+        } catch (error) {
+        //console.log('error happen');
+        //console.log(error);
+        setError(error);
+        setLoading(false);
         }
+    }
 
+    useEffect(() => {
         fetchData();
-      }, [dataSet]);
+      }, []);
 
     
     if (loading) {
@@ -72,6 +98,10 @@ function KSB61Flow({url}){
           </div>
           <h3 >Loading...</h3>
         </div>
+        <div className="card-footer border-top-0 mt-0">
+              <a id="backBtn" className="btn btn-primary me-2" href="#" style={{display: "inline"}}>&lt;</a>
+              <a id="nextBtn" className="btn btn-primary" href="#" style={{display: "inline"}}>&gt;</a>
+          </div>
       </div>
       </>
       );
@@ -82,7 +112,8 @@ function KSB61Flow({url}){
     }
 
     // cretae array for key of objecy
-    console.log("intitating flow graph data");
+    //console.log("intitating flow graph data");
+    console.log("page current : ", page);
     var arrKey = date;
     // console.log('get date');
     // console.log(date);
@@ -114,7 +145,7 @@ function KSB61Flow({url}){
       scales: {
           y: {
               min: 0,
-              max: maxValueFlow,
+              max: maxValueEngineLoad,
               ticks: {
                   font: {
                     size: 20,
@@ -166,13 +197,20 @@ function KSB61Flow({url}){
               <Line data={data} options={option1}/>
           </div>
           <div className="card-footer border-top-0 mt-0">
-              <p className="me-2" style={{display: "inline"}}>Average : <b>{averageValue}</b></p>
-              <p className="me-2" style={{display: "inline"}}>Biggest Value : <b>{biggestValue}</b></p>
-              <p style={{display: "inline"}}>Smallest Value : <b>{smallestValue}</b></p>
+              <a id="backBtn" className="btn btn-primary me-5" href="#" style={{display: "inline"}} onClick={
+                ()=>{
+                    backButtonClicked();
+                }
+              }>&lt;</a>
+              <a id="nextBtn" className="btn btn-primary" href="#" style={{display: "inline"}} onClick={
+                ()=>{
+                    nextButtonClicked();
+                }
+              }>&gt;</a>
           </div>
       </div>
   </>
     )
 }
 
-export default KSB61Flow
+export default EngineLoadPagination
