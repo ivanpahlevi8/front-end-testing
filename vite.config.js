@@ -7,6 +7,6 @@ export default defineConfig({
     plugins: [react()],
     base: '/',
     server: {
-        port: 1880,
+        port: 8080,
     },
 })
