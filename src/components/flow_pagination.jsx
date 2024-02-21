@@ -202,7 +202,8 @@ function FlowPagination({url}){
                     backButtonClicked();
                 }
               }>&lt;</a>
-              <a id="nextBtn" className="btn btn-primary" href="#" style={{display: "inline"}} onClick={
+              {page}
+              <a id="nextBtn" className="btn btn-primary ms-5" href="#" style={{display: "inline"}} onClick={
                 ()=>{
                     nextButtonClicked();
                 }
