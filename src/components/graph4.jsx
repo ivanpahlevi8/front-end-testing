@@ -14,7 +14,7 @@ function Graph4(){
                 </div>
                 <div className="col-sm d-flex justify-content-center">
                     <div className="card p-2">
-                        <h2>KSB61 -- ISPD200 -- PT.AMNT</h2>
+                        <h2>KSB60 -- ISPD200 -- PT.PAMA</h2>
                     </div>
                 </div>
                 <div className="col-sm" style={{margin: 2}}>

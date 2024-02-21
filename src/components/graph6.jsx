@@ -15,7 +15,7 @@ function Graph6() {
                 </div>
                 <div className="col-sm d-flex justify-content-center">
                     <div className="card p-2">
-                        <h2>KSB64 -- ISPD200</h2>
+                        <h2>KSB64 -- ISPD200 -- PT.TRB</h2>
                     </div>
                 </div>
                 <div className="col-sm" style={{margin: 2}}>
@@ -25,21 +25,21 @@ function Graph6() {
                 <div className="col-sm" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                         <div className="card-body p-0">
-                            <KSB61Flow url={'http://10.23.107.201:3030/flow-data-date?table=tb_ksb64'}/>
+                            <KSB61Flow url={'http://ksb-iot.intranet:3030/flow-data-date?table=tb_ksb64'}/>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                             <div className="card-body p-0">
-                            <KSB61Pressure url={'http://10.23.107.201:3030/press-data-date?table=tb_ksb64'}/>
+                            <KSB61Pressure url={'http://ksb-iot.intranet:3030/press-data-date?table=tb_ksb64'}/>
                             </div>
                         </div>
                     </div>
                 <div class="col-sm no-gutters" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                         <div className="card-body p-0">
-                            <KSB61Temp url={'http://10.23.107.201:3030/temp-data-date?table=tb_ksb64'}/>
+                            <KSB61Temp url={'http://ksb-iot.intranet:3030/temp-data-date?table=tb_ksb64'}/>
                         </div>
                     </div>
                 </div>
@@ -48,21 +48,21 @@ function Graph6() {
                 <div class="col-sm" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px'}}>
                         <div className="card-body p-0">
-                            <KSB61EngineSpeed url={'http://10.23.107.201:3030/speed-data-date?table=tb_ksb64'}/>
+                            <KSB61EngineSpeed url={'http://ksb-iot.intranet:3030/speed-data-date?table=tb_ksb64'}/>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                         <div className="card-body p-0">
-                            <KSB61EngineLoad url={'http://10.23.107.201:3030/load-data-date?table=tb_ksb64'}/>
+                            <KSB61EngineLoad url={'http://ksb-iot.intranet:3030/load-data-date?table=tb_ksb64'}/>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm" style={{margin: 2}}>
                     <div className="card" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
                         <div className="card-body p-0">
-                            <KSB61EngineFuelRate url={'http://10.23.107.201:3030/fuel-data-date?table=tb_ksb64'}/>
+                            <KSB61EngineFuelRate url={'http://ksb-iot.intranet:3030/fuel-data-date?table=tb_ksb64'}/>
                         </div>
                     </div>
                 </div>
