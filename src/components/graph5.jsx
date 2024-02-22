@@ -22,24 +22,24 @@ function Graph5(){
             </div>
             <div className="row g-0 mt-2">
                 <div className="col-sm" style={{margin: 2}}>
-                    <FlowPagination url={'http://10.23.107.201:3030/pag/flow-data-date?table=tb_ksb61'}/>
+                    <FlowPagination url={'http://ksb-iot.intranet:3030/pag/flow-data-date?table=tb_ksb61'}/>
                 </div>
                 <div className="col-sm" style={{margin: 2}}>
-                    <PressPagination url={'http://10.23.107.201:3030/pag/press-data-date?table=tb_ksb61'}/>
+                    <PressPagination url={'http://ksb-iot.intranet:3030/pag/press-data-date?table=tb_ksb61'}/>
                 </div>
                 <div className="col-sm" style={{margin: 2}}>
-                    <TempPagination url={'http://10.23.107.201:3030/pag/temp-data-date?table=tb_ksb61'}/>
+                    <TempPagination url={'http://ksb-iot.intranet:3030/pag/temp-data-date?table=tb_ksb61'}/>
                 </div>
             </div>
             <div className="row g-0 mt-2">
                 <div className="col-sm" style={{margin: 2}}>
-                    <EngineSpeedPagination url={'http://10.23.107.201:3030/pag/speed-data-date?table=tb_ksb61'}/>
+                    <EngineSpeedPagination url={'http://ksb-iot.intranet:3030/pag/speed-data-date?table=tb_ksb61'}/>
                 </div>
                 <div className="col-sm" style={{margin: 2}}>
-                    <EngineLoadPagination url={'http://10.23.107.201:3030/pag/load-data-date?table=tb_ksb61'}/>
+                    <EngineLoadPagination url={'http://ksb-iot.intranet:3030/pag/load-data-date?table=tb_ksb61'}/>
                 </div>
                 <div className="col-sm" style={{margin: 2}}>
-                    <FuelRatePagination url={'http://10.23.107.201:3030/pag/fuel-data-date?table=tb_ksb61'}/>
+                    <FuelRatePagination url={'http://ksb-iot.intranet:3030/pag/fuel-data-date?table=tb_ksb61'}/>
                 </div>
             </div>
         </div>
