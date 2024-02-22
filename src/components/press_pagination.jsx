@@ -12,6 +12,7 @@ function PressPagination({url}){
     const [date, setDate] = useState(null);
     const [dateOnly, setDateOnly] = useState(null)
     const [loading, setLoading] = useState(true);
+    const [loadingTxt, setLoadingtxt] = useState(true);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(1);
 
@@ -20,6 +21,7 @@ function PressPagination({url}){
         console.log("back button clicked");
         console.log("page in back button : ", page);
         if(page > 1) {
+            setLoadingtxt(true);
             setPage(prevState => {
                 return prevState-1;
             })
@@ -32,6 +34,7 @@ function PressPagination({url}){
         console.log("next button clicked");
         let getData = page + 1;
         console.log(getData);
+        setLoadingtxt(true);
         setPage(prevState => prevState + 1);
         fetchData();
     }
@@ -74,19 +77,21 @@ function PressPagination({url}){
             setDate(dateValue);
             setDateOnly(getDateOnly)
             setLoading(false);
+            setLoadingtxt(false);
 
             //console.log("set loading to false");
         } catch (error) {
-        //console.log('error happen');
-        //console.log(error);
-        setError(error);
-        setLoading(false);
+          //console.log('error happen');
+          //console.log(error);
+          setError(error);
+          setLoading(false);
+          setLoadingtxt(false);
         }
     }
 
     useEffect(() => {
         fetchData();
-      }, []);
+      }, [page]);
 
     
     if (loading) {
@@ -99,8 +104,8 @@ function PressPagination({url}){
           <h3 >Loading...</h3>
         </div>
         <div className="card-footer border-top-0 mt-0">
-              <a id="backBtn" className="btn btn-primary me-2" href="#" style={{display: "inline"}}>&lt;</a>
-              <a id="nextBtn" className="btn btn-primary" href="#" style={{display: "inline"}}>&gt;</a>
+              <a id="backBtn" className="" href="#" style={{display: "inline"}}></a>
+              <a id="nextBtn" className="" href="#" style={{display: "inline"}}></a>
           </div>
       </div>
       </>
@@ -199,12 +204,13 @@ function PressPagination({url}){
           <div className="card-footer border-top-0 mt-0">
               <a id="backBtn" className="btn btn-primary me-5" href="#" style={{display: "inline"}} onClick={
                 ()=>{
-                    backButtonClicked();
+                    nextButtonClicked();
                 }
               }>&lt;</a>
-              <a id="nextBtn" className="btn btn-primary" href="#" style={{display: "inline"}} onClick={
+              {loadingTxt === true ? <div className="spinner-grow" role="status"></div>:page}
+              <a id="nextBtn" className="btn btn-primary ms-5" href="#" style={{display: "inline"}} onClick={
                 ()=>{
-                    nextButtonClicked();
+                    backButtonClicked();
                 }
               }>&gt;</a>
           </div>
