@@ -8,7 +8,10 @@ import Traffic6 from './pages/page6'
 import Traffic7 from './pages/page7'
 
 import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js';
 import './App.css'
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function App() {
 

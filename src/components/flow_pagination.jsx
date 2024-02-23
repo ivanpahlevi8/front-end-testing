@@ -111,7 +111,17 @@ function FlowPagination({url}){
     }
 
     if (error) {
-    return <div>Error: {error.message}</div>;
+      return <>
+      <div className="card position-relative" style={{backgroundColor: 'red500', height: '500px', width: '100%'}}>
+        <div className="position-absolute bottom-50 end-50 translate-middle">
+          <div>Error: {error.message}</div>
+        </div>
+        <div className="card-footer border-top-0 mt-0">
+              <a id="backBtn" className="" href="#" style={{display: "inline"}}></a>
+              <a id="nextBtn" className="" href="#" style={{display: "inline"}}></a>
+          </div>
+      </div>
+      </>;
     }
 
     // cretae array for key of objecy

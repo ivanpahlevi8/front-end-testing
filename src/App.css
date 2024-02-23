@@ -29,6 +29,10 @@ h2 {
     color: rgba(0, 82, 165);
 }
 
+.ui.dropdown .visible.menu {
+    display: inline-block !important;
+  }
+
 a{
     color: rgba(0, 0, 0);
 }
