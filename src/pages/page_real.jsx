@@ -15,6 +15,7 @@ import KSB61EngineSpeed from "../components/ksb61_enginespd";
 import UserSession from "../components/user_session";
 
 function RealTimePage(){
+    console.log(UserSession.getIsAuthenticated());
     // create state
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -62,7 +63,6 @@ function RealTimePage(){
         </>;
     }
 
-    UserSession.setIsAuthenticate(false);
     console.log(dataResponse);
 
 
@@ -112,16 +112,8 @@ function RealTimePage(){
                             })}
                         </ul>
                     </li>
-                    {!UserSession.getIsAuthenticated()? <p></p>:<li class="nav-item dropdown me-5">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Admin
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Add Unit</a></li>
-                            <li><a class="dropdown-item" href="#">Delete Unit</a></li>
-                            <li><a class="dropdown-item" href="#">Update Unit</a></li>
-                        </ul>
-                    </li>}
+                    {!UserSession.getIsAuthenticated()? <li className="nav-item"><a className="nav-link" href="/">Login</a></li> : UserSession.getLevel()===1? <li className="nav-item"><a className="nav-link" href="/admin">Admin</a>
+                    </li> : <li className="nav-item"><a className="nav-link" href="/">Logout</a></li>}
                     <li className="ms-5 me-5"></li>
                     <li className="ms-5 me-5"></li>
                     <li class="nav-item dropdown ms-5">

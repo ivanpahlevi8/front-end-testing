@@ -25,6 +25,16 @@ html {
     padding: 0;
 }
 
+div#cols {
+    max-height: 100vh;          /* not available in Bootstrap */
+    overflow-y: scroll;
+}
+
+th, td{
+    padding: 30px;
+}
+
+
 h2 {
     color: rgba(0, 82, 165);
 }
