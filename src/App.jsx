@@ -24,7 +24,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<LoginPage/>}/>
-          <Route path='/admin' element={<AdminPage/>}/>
+          <Route path='/fe/admin' element={<AdminPage/>}/>
           <Route path='/admin/add' element={<AddPage/>}/>
           <Route path='/admin/delete' element={<DeletePage/>}/>
           <Route path='/admin/delete/:tableName/:unitName/:pumpLable/:customerLable' element={<DeletePageProcess/>}/>
