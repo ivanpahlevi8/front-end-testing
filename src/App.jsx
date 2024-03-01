@@ -22,9 +22,9 @@ function App() {
 
   return (
     <>
-      <Router>
+      <Router basename='/ui'>
         <Routes>
-          <Route path='/login' element={<LoginPage/>}/>
+          <Route path='/' element={<LoginPage/>}/>
           <Route path='/register' element={<RegisterPage/>}/>
           <Route path='/admin' element={<AdminPage/>}/>
           <Route path='/admin/add' element={<AddPage/>}/>
