@@ -2,8 +2,6 @@ import { json, useNavigate } from "react-router-dom";
 import Swal                  from 'sweetalert2'
 import UserSession           from "./user_session";
 
-import UserSession           from "./user_session";
-
 
 function LoginComponent(){
     UserSession.setIsAuthenticate(false);
