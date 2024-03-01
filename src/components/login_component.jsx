@@ -34,7 +34,7 @@ function LoginComponent(){
         };
 
         // do request
-        var response = await fetch('http://10.23.107.201:3030/login', reqPayload).then(resp => resp.json());
+        var response = await fetch('http://ksb-iot.intranet:3030/login', reqPayload).then(resp => resp.json());
 
         // get response member
         var statusResp = response.status;
@@ -71,7 +71,7 @@ function LoginComponent(){
                 console.log(UserSession.getLevel());
 
                 // navigate to main
-                navigate('ksb-iot.intranet/ui');
+                navigate('ui');
                 console.log("navigate to main page...");
             }
         })
