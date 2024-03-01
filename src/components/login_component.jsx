@@ -72,7 +72,8 @@ function LoginComponent(){
                 console.log(UserSession.getLevel());
 
                 // navigate to main
-                navigate('ui/');
+                // navigate('ui/');
+                window.location.href = 'http://ksb-iot.intranet/ui/';
                 console.log("navigate to main page...");
             }
         })
