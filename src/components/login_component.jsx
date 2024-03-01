@@ -82,7 +82,8 @@ function LoginComponent(){
     return <>
         <form>
             <img className="mb-4" src="https://companieslogo.com/img/orig/KSB.NS-520c52e8.png?t=1604232065" width={"72"}/>
-            <h3 className="h3 mb-3 fw-normal load">Please Sign In</h3>
+            <h2 className="h3 mb-3 fw-normal load" style={{color: "wheat"}}>Welcome to KSB IOT Dashboard</h2>
+            <h3 className="h3 mb-3 fw-normal load" style={{color: "wheat"}}>Please Sign In</h3>
 
             <div className="form-floating mt-5">
                 <input type="text" className="form-control" id="username" placeholder="username"/>

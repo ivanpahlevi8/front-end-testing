@@ -76,7 +76,7 @@ function RegisterComponent(){
     return <>
         <form>
             <img className="mb-4" src="https://companieslogo.com/img/orig/KSB.NS-520c52e8.png?t=1604232065" width={"72"}/>
-            <h3 className="h3 mb-3 fw-normal load">Sign Up Page</h3>
+            <h3 className="h3 mb-3 fw-normal load" style={{color: "wheat"}}>Sign Up Page</h3>
             <div className="form-floating mt-5">
                 <input type="text" className="form-control" id="full_name" placeholder="full name"/>
                 <label htmlFor="floatingInput">Full Name</label>
