@@ -22,7 +22,7 @@ function AdminPage(){
             };
 
             // request to get all unit data
-            const response = await fetch("http://10.23.107.201:3030/get-all-unit", reqPayload).then(resp => resp.json());
+            const response = await fetch("http://ksb-iot.intranet:3030/get-all-unit", reqPayload).then(resp => resp.json());
             var getData = response.data;
 
             // get len data

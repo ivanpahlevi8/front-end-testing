@@ -62,11 +62,6 @@ function DeletePageProcess(){
         }).then((result)=>{
             if(result.isConfirmed){
                 // ok button clicked
-                // set login session
-                UserSession.setIsAuthenticate(true);
-                UserSession.setLevel(levelResp);
-                console.log(UserSession.getLevel());
-
                 // navigate to main
                 navigate('/real/tb_ksb60/KSB60/ISPD200/PT. PAMA');
                 console.log("navigate to main page...");

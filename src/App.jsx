@@ -15,6 +15,7 @@ import DeletePage from './pages/delete_page';
 import UpdatePage from './pages/update_page';
 import DeletePageProcess from './pages/delete_page_process';
 import UpdatePageProcess from './pages/update_page_process';
+import RegisterPage from './pages/register_page';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<LoginPage/>}/>
+          <Route path='/register' element={<RegisterPage/>}/>
           <Route path='/admin' element={<AdminPage/>}/>
           <Route path='/admin/add' element={<AddPage/>}/>
           <Route path='/admin/delete' element={<DeletePage/>}/>

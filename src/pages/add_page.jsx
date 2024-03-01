@@ -28,7 +28,7 @@ function AddPage(){
         };
 
         // do request
-        var response = await fetch('http://10.23.107.201:3030/add-unit', reqPayload).then(resp => resp.json());
+        var response = await fetch('http://ksb-iot.intranet:3030/add-unit', reqPayload).then(resp => resp.json());
 
         // get response member
         var getStatus = response.status;
