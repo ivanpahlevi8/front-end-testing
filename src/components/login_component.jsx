@@ -1,6 +1,9 @@
 import { json, useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2'
-import UserSession from "./user_session";
+import Swal                  from 'sweetalert2'
+import UserSession           from "./user_session";
+
+import UserSession           from "./user_session";
+
 
 function LoginComponent(){
     UserSession.setIsAuthenticate(false);
@@ -71,7 +74,7 @@ function LoginComponent(){
                 console.log(UserSession.getLevel());
 
                 // navigate to main
-                navigate('ui');
+                navigate('ui/');
                 console.log("navigate to main page...");
             }
         })
