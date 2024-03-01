@@ -22,7 +22,7 @@ function App() {
 
   return (
     <>
-      <Router basename='/ui'>
+      <Router>
         <Routes>
           <Route path='/' element={<LoginPage/>}/>
           <Route path='/register' element={<RegisterPage/>}/>
